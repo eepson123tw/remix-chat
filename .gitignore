@@ -52,4 +52,7 @@ Thumbs.db
 .eslintcache
 
 # dotenv environment variables file
+/.cache
+/build
+/public/build
 .env

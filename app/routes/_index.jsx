@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
+import { Button } from "@/components/ui/button";
+
 const socketURL = process.env;
 export default function Index() {
   const [userName, setUserName] = useState("");
@@ -71,9 +73,13 @@ export default function Index() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button id="sendButton" onClick={sendMessage}>
+        <Button
+          id="sendButton"
+          className="text-3xl font-bold underline bg-black"
+          onClick={sendMessage}
+        >
           Send
-        </button>
+        </Button>
       </div>
     </div>
   );

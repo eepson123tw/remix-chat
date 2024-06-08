@@ -1,1 +1,0 @@
-import{a as y,h as r}from"/build/_shared/chunk-36JIVDKI.js";import{b as u,d as t,f as e}from"/build/_shared/chunk-RKJSHOWP.js";var n=u(o=>{"use strict";var i=y();o.createRoot=i.createRoot,o.hydrateRoot=i.hydrateRoot;var _});var a=t(n(),1),R=t(e(),1);(0,a.hydrateRoot)(document,(0,R.jsx)(r,{}));

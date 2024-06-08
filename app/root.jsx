@@ -9,20 +9,21 @@ import {
   useLoaderData,
   useNavigation,
 } from "@remix-run/react";
-
-import { json } from "@remix-run/node";
+import { cssBundleHref } from "@remix-run/css-bundle";
+import { json, LinksFunction } from "@remix-run/node";
 
 import styles from "./styles/global.css";
+import tailstyles from "./tailwind.css";
 
-// export const meta = () => ({
-//   charset: "utf-8",
-//   title: "My First Remix App",
-//   viewport: "width=device-width,initial-scale=1",
-// });
 export async function loader({ request }) {
   return json({ ENV: { LOCAL_PATH: process.env.VITE_SOCKET_SERVER_URL } });
 }
-export const links = () => [{ rel: "stylesheet", href: styles }];
+
+export const links = () => [
+  { rel: "stylesheet", href: styles },
+  { rel: "stylesheet", href: tailstyles },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+];
 
 export default function App() {
   const { locale, ENV } = useLoaderData();
@@ -33,7 +34,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-red-400">
         <Outlet />
         <script
           dangerouslySetInnerHTML={{
