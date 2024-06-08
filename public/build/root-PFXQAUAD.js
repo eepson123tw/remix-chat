@@ -1,26 +1,40 @@
 import {
-  require_jsx_dev_runtime
-} from "/build/_shared/chunk-XGOTYLZ5.js";
-import {
   Links,
+  LiveReload,
   Meta,
   Outlet,
-  Scripts
+  Scripts,
+  ScrollRestoration,
+  useLoaderData
 } from "/build/_shared/chunk-SFDIGTAH.js";
+import {
+  require_jsx_dev_runtime
+} from "/build/_shared/chunk-XGOTYLZ5.js";
 import {
   createHotContext
 } from "/build/_shared/chunk-GMFRLIKR.js";
 import "/build/_shared/chunk-UWV35TSL.js";
 import "/build/_shared/chunk-U4FRFQSK.js";
+import "/build/_shared/chunk-7M6SC7J5.js";
 import {
-  require_react
-} from "/build/_shared/chunk-7M6SC7J5.js";
-import {
+  __commonJS,
   __toESM
 } from "/build/_shared/chunk-PNG5AS42.js";
 
+// empty-module:@remix-run/node
+var require_node = __commonJS({
+  "empty-module:@remix-run/node"(exports, module) {
+    module.exports = {};
+  }
+});
+
 // app/root.jsx
-var React = __toESM(require_react(), 1);
+var import_node = __toESM(require_node(), 1);
+
+// app/styles/global.css
+var global_default = "/build/_assets/global-MNDKXT7F.css";
+
+// app/root.jsx
 var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
 if (!window.$RefreshReg$ || !window.$RefreshSig$ || !window.$RefreshRuntime$) {
   console.warn("remix:hmr: React Fast Refresh only works when the Remix compiler is running in development mode.");
@@ -40,82 +54,85 @@ if (import.meta) {
     //@ts-expect-error
     "app/root.jsx"
   );
-  import.meta.hot.lastModified = "1717815943152.7188";
 }
+var links = () => [{
+  rel: "stylesheet",
+  href: global_default
+}];
 function App() {
   _s();
-  const [count, setCount] = React.useState(0);
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { children: [
+  const {
+    locale,
+    ENV
+  } = useLoaderData();
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { lang: "en", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("head", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("link", { rel: "icon", href: "data:image/x-icon;base64,AA" }, void 0, false, {
-        fileName: "app/root.jsx",
-        lineNumber: 29,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("title", { children: "My First Remix App" }, void 0, false, {
-        fileName: "app/root.jsx",
-        lineNumber: 30,
-        columnNumber: 9
-      }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Meta, {}, void 0, false, {
         fileName: "app/root.jsx",
-        lineNumber: 31,
+        lineNumber: 51,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Links, {}, void 0, false, {
         fileName: "app/root.jsx",
-        lineNumber: 32,
+        lineNumber: 52,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.jsx",
-      lineNumber: 28,
+      lineNumber: 50,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", { children: "Hello world!" }, void 0, false, {
-        fileName: "app/root.jsx",
-        lineNumber: 35,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("p", { children: "This is a remix app. Hooray!" }, void 0, false, {
-        fileName: "app/root.jsx",
-        lineNumber: 36,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("button", { onClick: () => setCount((c) => c + 1), children: count }, void 0, false, {
-        fileName: "app/root.jsx",
-        lineNumber: 37,
-        columnNumber: 9
-      }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Outlet, {}, void 0, false, {
         fileName: "app/root.jsx",
-        lineNumber: 38,
+        lineNumber: 55,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("script", { dangerouslySetInnerHTML: {
+        __html: `window.process = ${JSON.stringify({
+          env: ENV.LOCAL_PATH
+        })}`
+      } }, void 0, false, {
+        fileName: "app/root.jsx",
+        lineNumber: 56,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(ScrollRestoration, {}, void 0, false, {
+        fileName: "app/root.jsx",
+        lineNumber: 62,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(Scripts, {}, void 0, false, {
         fileName: "app/root.jsx",
-        lineNumber: 40,
+        lineNumber: 63,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)(LiveReload, {}, void 0, false, {
+        fileName: "app/root.jsx",
+        lineNumber: 64,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "app/root.jsx",
-      lineNumber: 34,
+      lineNumber: 54,
       columnNumber: 7
     }, this)
   ] }, void 0, true, {
     fileName: "app/root.jsx",
-    lineNumber: 27,
+    lineNumber: 49,
     columnNumber: 10
   }, this);
 }
-_s(App, "oDgYfYHkD9Wkv4hrAPCkI/ev3YU=");
+_s(App, "XJHxtnm+mN7UBHyQ72/m+qv+mo4=", false, function() {
+  return [useLoaderData];
+});
 _c = App;
 var _c;
 $RefreshReg$(_c, "App");
 window.$RefreshReg$ = prevRefreshReg;
 window.$RefreshSig$ = prevRefreshSig;
 export {
-  App as default
+  App as default,
+  links
 };
-//# sourceMappingURL=/build/root-5ZWZGR7J.js.map
+//# sourceMappingURL=/build/root-PFXQAUAD.js.map
