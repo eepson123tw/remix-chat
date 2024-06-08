@@ -5,9 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "remix dev",
     "build": "remix build",
-    "start": "remix-serve build/index.js"
+    "dev": "remix dev --manual",
+    "start": "dotenv -e .env.prod remix-serve build/index.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",
+    "dotenv-cli": "^7.4.2",
     "vite": "^5.2.13"
   }
 }
