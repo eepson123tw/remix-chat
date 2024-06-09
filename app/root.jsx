@@ -33,7 +33,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-red-400">
+      <body>
         <Outlet />
         <script
           dangerouslySetInnerHTML={{

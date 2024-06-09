@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@remix-run/react";
+
 import { MoreHorizontal, SquarePen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "@/components/ui/tooltip";
+
 import { Avatar, AvatarImage } from "./ui/avatar";
 
 export function Sidebar({ links, isCollapsed, isMobile }) {
@@ -71,7 +73,7 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
                         height={6}
                         className="w-10 h-10 "
                       />
-                    </Avatar>{" "}
+                    </Avatar>
                     <span className="sr-only">{link.name}</span>
                   </Link>
                 </TooltipTrigger>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, Link, json } from "@remix-run/react";
-import { twMerge } from "tailwind-merge";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+
+import { twMerge } from "tailwind-merge";
 import { clsx } from "clsx";
 
 import { Button } from "@/components/ui/button";
@@ -55,8 +56,6 @@ export default function Index() {
           <GitHubLogoIcon className="w-7 h-7 text-muted-foreground" />
         </Link>
       </div>
-
-      <p className="text-[50px]"></p>
 
       <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex  bg-background">
         <ChatLayout defaultLayout={defaultLayout} navCollapsedSize={8} />

@@ -78,7 +78,7 @@ function App() {
       lineNumber: 32,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV2("body", { className: "bg-red-400", children: [
+    /* @__PURE__ */ jsxDEV2("body", { children: [
       /* @__PURE__ */ jsxDEV2(Outlet, {}, void 0, !1, {
         fileName: "app/root.jsx",
         lineNumber: 37,
@@ -136,9 +136,9 @@ __export(index_exports, {
   loader: () => loader2
 });
 import "react";
-import { useLoaderData as useLoaderData2, Link as Link3, json as json2 } from "@remix-run/react";
-import { twMerge as twMerge2 } from "tailwind-merge";
+import { useLoaderData as useLoaderData2, Link as Link4, json as json2 } from "@remix-run/react";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { twMerge as twMerge2 } from "tailwind-merge";
 import { clsx as clsx2 } from "clsx";
 
 // @/components/ui/button.tsx
@@ -370,7 +370,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
           /* @__PURE__ */ jsxDEV7("div", { className: "flex gap-2 items-center text-2xl", children: [
             /* @__PURE__ */ jsxDEV7("p", { className: "font-medium", children: "Chats" }, void 0, !1, {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 24,
+              lineNumber: 26,
               columnNumber: 13
             }, this),
             /* @__PURE__ */ jsxDEV7("span", { className: "text-zinc-300", children: [
@@ -379,12 +379,12 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               ")"
             ] }, void 0, !0, {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 25,
+              lineNumber: 27,
               columnNumber: 13
             }, this)
           ] }, void 0, !0, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 23,
+            lineNumber: 25,
             columnNumber: 11
           }, this),
           /* @__PURE__ */ jsxDEV7("div", { children: [
@@ -398,7 +398,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                 ),
                 children: /* @__PURE__ */ jsxDEV7(MoreHorizontal, { size: 20 }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 36,
+                  lineNumber: 38,
                   columnNumber: 15
                 }, this)
               },
@@ -406,7 +406,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !1,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 29,
+                lineNumber: 31,
                 columnNumber: 13
               },
               this
@@ -421,7 +421,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                 ),
                 children: /* @__PURE__ */ jsxDEV7(SquarePen, { size: 20 }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 46,
+                  lineNumber: 48,
                   columnNumber: 15
                 }, this)
               },
@@ -429,19 +429,19 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !1,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 39,
+                lineNumber: 41,
                 columnNumber: 13
               },
               this
             )
           ] }, void 0, !0, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 28,
+            lineNumber: 30,
             columnNumber: 11
           }, this)
         ] }, void 0, !0, {
           fileName: "app/components/sidebar.jsx",
-          lineNumber: 22,
+          lineNumber: 24,
           columnNumber: 9
         }, this),
         /* @__PURE__ */ jsxDEV7("nav", { className: "grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2", children: links2.map(
@@ -469,19 +469,18 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                     !1,
                     {
                       fileName: "app/components/sidebar.jsx",
-                      lineNumber: 67,
+                      lineNumber: 69,
                       columnNumber: 23
                     },
                     this
                   ) }, void 0, !1, {
                     fileName: "app/components/sidebar.jsx",
-                    lineNumber: 66,
+                    lineNumber: 68,
                     columnNumber: 21
                   }, this),
-                  " ",
                   /* @__PURE__ */ jsxDEV7("span", { className: "sr-only", children: link.name }, void 0, !1, {
                     fileName: "app/components/sidebar.jsx",
-                    lineNumber: 75,
+                    lineNumber: 77,
                     columnNumber: 21
                   }, this)
                 ]
@@ -490,13 +489,13 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !0,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 57,
+                lineNumber: 59,
                 columnNumber: 19
               },
               this
             ) }, void 0, !1, {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 56,
+              lineNumber: 58,
               columnNumber: 17
             }, this),
             /* @__PURE__ */ jsxDEV7(
@@ -510,18 +509,18 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !1,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 78,
+                lineNumber: 80,
                 columnNumber: 17
               },
               this
             )
           ] }, index, !0, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 55,
+            lineNumber: 57,
             columnNumber: 15
           }, this) }, index, !1, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 54,
+            lineNumber: 56,
             columnNumber: 13
           }, this) : /* @__PURE__ */ jsxDEV7(
             Link,
@@ -546,19 +545,19 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                   !1,
                   {
                     fileName: "app/components/sidebar.jsx",
-                    lineNumber: 98,
+                    lineNumber: 100,
                     columnNumber: 17
                   },
                   this
                 ) }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 97,
+                  lineNumber: 99,
                   columnNumber: 15
                 }, this),
                 /* @__PURE__ */ jsxDEV7("div", { className: "flex flex-col max-w-28", children: [
                   /* @__PURE__ */ jsxDEV7("span", { children: link.name }, void 0, !1, {
                     fileName: "app/components/sidebar.jsx",
-                    lineNumber: 107,
+                    lineNumber: 109,
                     columnNumber: 17
                   }, this),
                   link.messages.length > 0 && /* @__PURE__ */ jsxDEV7("span", { className: "text-zinc-300 text-xs truncate ", children: [
@@ -567,12 +566,12 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                     link.messages[link.messages.length - 1].message
                   ] }, void 0, !0, {
                     fileName: "app/components/sidebar.jsx",
-                    lineNumber: 109,
+                    lineNumber: 111,
                     columnNumber: 19
                   }, this)
                 ] }, void 0, !0, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 106,
+                  lineNumber: 108,
                   columnNumber: 15
                 }, this)
               ]
@@ -581,14 +580,14 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
             !0,
             {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 87,
+              lineNumber: 89,
               columnNumber: 13
             },
             this
           )
         ) }, void 0, !1, {
           fileName: "app/components/sidebar.jsx",
-          lineNumber: 51,
+          lineNumber: 53,
           columnNumber: 7
         }, this)
       ]
@@ -597,7 +596,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
     !0,
     {
       fileName: "app/components/sidebar.jsx",
-      lineNumber: 17,
+      lineNumber: 19,
       columnNumber: 5
     },
     this
@@ -610,6 +609,7 @@ import { useState as useState2, useEffect as useEffect2 } from "react";
 
 // app/components/chat/chat-topbar.jsx
 import "react";
+import { Link as Link2 } from "@remix-run/react";
 import { Info, Phone, Video } from "lucide-react";
 
 // app/components/ui/button.jsx
@@ -665,6 +665,7 @@ Button2.displayName = "Button";
 
 // app/components/chat/chat-topbar.jsx
 import { jsxDEV as jsxDEV9 } from "react/jsx-dev-runtime";
+var TopbarIcons = [{ icon: Phone }, { icon: Video }, { icon: Info }];
 function ChatTopbar({ selectedUser }) {
   return /* @__PURE__ */ jsxDEV9("div", { className: "w-full h-20 flex p-4 justify-between items-center border-b", children: [
     /* @__PURE__ */ jsxDEV9("div", { className: "flex items-center gap-2", children: [
@@ -681,44 +682,67 @@ function ChatTopbar({ selectedUser }) {
         !1,
         {
           fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 16,
+          lineNumber: 17,
           columnNumber: 11
         },
         this
       ) }, void 0, !1, {
         fileName: "app/components/chat/chat-topbar.jsx",
-        lineNumber: 15,
+        lineNumber: 16,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV9("div", { className: "flex flex-col", children: [
         /* @__PURE__ */ jsxDEV9("span", { className: "font-medium", children: selectedUser.name }, void 0, !1, {
           fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 25,
+          lineNumber: 26,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ jsxDEV9("span", { className: "text-xs", children: "Active 2 mins ago" }, void 0, !1, {
           fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 26,
+          lineNumber: 27,
           columnNumber: 11
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/chat/chat-topbar.jsx",
-        lineNumber: 24,
+        lineNumber: 25,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/chat/chat-topbar.jsx",
-      lineNumber: 14,
+      lineNumber: 15,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV9("div", {}, void 0, !1, {
+    /* @__PURE__ */ jsxDEV9("div", { children: TopbarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV9(
+      Link2,
+      {
+        href: "#",
+        className: cn(
+          buttonVariants2({ variant: "ghost", size: "icon" }),
+          "h-9 w-9",
+          "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+        ),
+        children: /* @__PURE__ */ jsxDEV9(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+          fileName: "app/components/chat/chat-topbar.jsx",
+          lineNumber: 42,
+          columnNumber: 13
+        }, this)
+      },
+      index,
+      !1,
+      {
+        fileName: "app/components/chat/chat-topbar.jsx",
+        lineNumber: 33,
+        columnNumber: 11
+      },
+      this
+    )) }, void 0, !1, {
       fileName: "app/components/chat/chat-topbar.jsx",
-      lineNumber: 30,
+      lineNumber: 31,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat-topbar.jsx",
-    lineNumber: 13,
+    lineNumber: 14,
     columnNumber: 5
   }, this);
 }
@@ -735,9 +759,69 @@ import {
   SendHorizontal,
   ThumbsUp
 } from "lucide-react";
-import { Link as Link2 } from "@remix-run/react";
+import { Link as Link3 } from "@remix-run/react";
 import { useRef, useState } from "react";
+
+// @/components/ui/textarea.tsx
+import * as React6 from "react";
+import { jsxDEV as jsxDEV10 } from "react/jsx-dev-runtime";
+var Textarea = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsxDEV10(
+    "textarea",
+    {
+      className: cn(
+        "flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      ),
+      ref,
+      ...props
+    },
+    void 0,
+    !1,
+    {
+      fileName: "@/components/ui/textarea.tsx",
+      lineNumber: 11,
+      columnNumber: 7
+    },
+    this
+  )
+);
+Textarea.displayName = "Textarea";
+
+// app/components/chat/chat-bottombar.jsx
 import { AnimatePresence, motion } from "framer-motion";
+
+// @/components/ui/popover.tsx
+import * as React7 from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { jsxDEV as jsxDEV11 } from "react/jsx-dev-runtime";
+var Popover = PopoverPrimitive.Root, PopoverTrigger = PopoverPrimitive.Trigger;
+var PopoverContent = React7.forwardRef(({ className, align = "center", sideOffset = 4, ...props }, ref) => /* @__PURE__ */ jsxDEV11(PopoverPrimitive.Portal, { children: /* @__PURE__ */ jsxDEV11(
+  PopoverPrimitive.Content,
+  {
+    ref,
+    align,
+    sideOffset,
+    className: cn(
+      "z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className
+    ),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "@/components/ui/popover.tsx",
+    lineNumber: 17,
+    columnNumber: 5
+  },
+  this
+) }, void 0, !1, {
+  fileName: "@/components/ui/popover.tsx",
+  lineNumber: 16,
+  columnNumber: 3
+}, this));
+PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 // app/data/index.js
 var userData = [
@@ -780,64 +864,6 @@ var userData = [
   avatar: "https://picsum.photos/id/11/200/300",
   name: "Jakob Hoeg"
 };
-
-// @/components/ui/textarea.tsx
-import * as React6 from "react";
-import { jsxDEV as jsxDEV10 } from "react/jsx-dev-runtime";
-var Textarea = React6.forwardRef(
-  ({ className, ...props }, ref) => /* @__PURE__ */ jsxDEV10(
-    "textarea",
-    {
-      className: cn(
-        "flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-        className
-      ),
-      ref,
-      ...props
-    },
-    void 0,
-    !1,
-    {
-      fileName: "@/components/ui/textarea.tsx",
-      lineNumber: 11,
-      columnNumber: 7
-    },
-    this
-  )
-);
-Textarea.displayName = "Textarea";
-
-// @/components/ui/popover.tsx
-import * as React7 from "react";
-import * as PopoverPrimitive from "@radix-ui/react-popover";
-import { jsxDEV as jsxDEV11 } from "react/jsx-dev-runtime";
-var Popover = PopoverPrimitive.Root, PopoverTrigger = PopoverPrimitive.Trigger;
-var PopoverContent = React7.forwardRef(({ className, align = "center", sideOffset = 4, ...props }, ref) => /* @__PURE__ */ jsxDEV11(PopoverPrimitive.Portal, { children: /* @__PURE__ */ jsxDEV11(
-  PopoverPrimitive.Content,
-  {
-    ref,
-    align,
-    sideOffset,
-    className: cn(
-      "z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-      className
-    ),
-    ...props
-  },
-  void 0,
-  !1,
-  {
-    fileName: "@/components/ui/popover.tsx",
-    lineNumber: 17,
-    columnNumber: 5
-  },
-  this
-) }, void 0, !1, {
-  fileName: "@/components/ui/popover.tsx",
-  lineNumber: 16,
-  columnNumber: 3
-}, this));
-PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 // app/components/emoji-picker.jsx
 import { SmileIcon } from "lucide-react";
@@ -914,7 +940,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
     /* @__PURE__ */ jsxDEV13("div", { className: "flex", children: [
       /* @__PURE__ */ jsxDEV13(Popover, { children: [
         /* @__PURE__ */ jsxDEV13(PopoverTrigger, { asChild: !0, children: /* @__PURE__ */ jsxDEV13(
-          Link2,
+          Link3,
           {
             href: "#",
             className: cn(
@@ -924,7 +950,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
             ),
             children: /* @__PURE__ */ jsxDEV13(PlusCircle, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 87,
+              lineNumber: 89,
               columnNumber: 15
             }, this)
           },
@@ -932,18 +958,18 @@ function ChatBottombar({ sendMessage, isMobile }) {
           !1,
           {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 79,
+            lineNumber: 81,
             columnNumber: 13
           },
           this
         ) }, void 0, !1, {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 78,
+          lineNumber: 80,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ jsxDEV13(PopoverContent, { side: "top", className: "w-full p-2", children: message.trim() || isMobile ? /* @__PURE__ */ jsxDEV13("div", { className: "flex gap-2", children: [
           /* @__PURE__ */ jsxDEV13(
-            Link2,
+            Link3,
             {
               href: "#",
               className: cn(
@@ -953,7 +979,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
               ),
               children: /* @__PURE__ */ jsxDEV13(Mic, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 101,
+                lineNumber: 103,
                 columnNumber: 19
               }, this)
             },
@@ -961,13 +987,13 @@ function ChatBottombar({ sendMessage, isMobile }) {
             !1,
             {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 93,
+              lineNumber: 95,
               columnNumber: 17
             },
             this
           ),
           BottombarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV13(
-            Link2,
+            Link3,
             {
               href: "#",
               className: cn(
@@ -977,7 +1003,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
               ),
               children: /* @__PURE__ */ jsxDEV13(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 113,
+                lineNumber: 115,
                 columnNumber: 21
               }, this)
             },
@@ -985,17 +1011,17 @@ function ChatBottombar({ sendMessage, isMobile }) {
             !1,
             {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 104,
+              lineNumber: 106,
               columnNumber: 19
             },
             this
           ))
         ] }, void 0, !0, {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 92,
+          lineNumber: 94,
           columnNumber: 15
         }, this) : /* @__PURE__ */ jsxDEV13(
-          Link2,
+          Link3,
           {
             href: "#",
             className: cn(
@@ -1005,7 +1031,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
             ),
             children: /* @__PURE__ */ jsxDEV13(Mic, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 126,
+              lineNumber: 128,
               columnNumber: 17
             }, this)
           },
@@ -1013,22 +1039,22 @@ function ChatBottombar({ sendMessage, isMobile }) {
           !1,
           {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 118,
+            lineNumber: 120,
             columnNumber: 15
           },
           this
         ) }, void 0, !1, {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 90,
+          lineNumber: 92,
           columnNumber: 11
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/chat/chat-bottombar.jsx",
-        lineNumber: 77,
+        lineNumber: 79,
         columnNumber: 9
       }, this),
       !message.trim() && !isMobile && /* @__PURE__ */ jsxDEV13("div", { className: "flex", children: BottombarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV13(
-        Link2,
+        Link3,
         {
           href: "#",
           className: cn(
@@ -1038,7 +1064,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
           ),
           children: /* @__PURE__ */ jsxDEV13(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 143,
+            lineNumber: 145,
             columnNumber: 17
           }, this)
         },
@@ -1046,18 +1072,18 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !1,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 134,
+          lineNumber: 136,
           columnNumber: 15
         },
         this
       )) }, void 0, !1, {
         fileName: "app/components/chat/chat-bottombar.jsx",
-        lineNumber: 132,
+        lineNumber: 134,
         columnNumber: 11
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/chat/chat-bottombar.jsx",
-      lineNumber: 76,
+      lineNumber: 78,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV13(AnimatePresence, { initial: !1, children: [
@@ -1093,7 +1119,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
               !1,
               {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 166,
+                lineNumber: 168,
                 columnNumber: 11
               },
               this
@@ -1109,13 +1135,13 @@ function ChatBottombar({ sendMessage, isMobile }) {
               !1,
               {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 177,
+                lineNumber: 179,
                 columnNumber: 13
               },
               this
             ) }, void 0, !1, {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 176,
+              lineNumber: 178,
               columnNumber: 11
             }, this)
           ]
@@ -1124,13 +1150,13 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !0,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 151,
+          lineNumber: 153,
           columnNumber: 9
         },
         this
       ),
       message.trim() ? /* @__PURE__ */ jsxDEV13(
-        Link2,
+        Link3,
         {
           href: "#",
           className: cn(
@@ -1141,7 +1167,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
           onClick: handleSend,
           children: /* @__PURE__ */ jsxDEV13(SendHorizontal, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 198,
+            lineNumber: 200,
             columnNumber: 13
           }, this)
         },
@@ -1149,12 +1175,12 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !1,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 189,
+          lineNumber: 191,
           columnNumber: 11
         },
         this
       ) : /* @__PURE__ */ jsxDEV13(
-        Link2,
+        Link3,
         {
           href: "#",
           className: cn(
@@ -1165,7 +1191,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
           onClick: handleThumbsUp,
           children: /* @__PURE__ */ jsxDEV13(ThumbsUp, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 210,
+            lineNumber: 212,
             columnNumber: 13
           }, this)
         },
@@ -1173,19 +1199,19 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !1,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 201,
+          lineNumber: 203,
           columnNumber: 11
         },
         this
       )
     ] }, void 0, !0, {
       fileName: "app/components/chat/chat-bottombar.jsx",
-      lineNumber: 150,
+      lineNumber: 152,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat-bottombar.jsx",
-    lineNumber: 75,
+    lineNumber: 77,
     columnNumber: 5
   }, this);
 }
@@ -1465,7 +1491,7 @@ function ChatLayout({
               !1,
               {
                 fileName: "app/components/chat/chat-layout.jsx",
-                lineNumber: 74,
+                lineNumber: 75,
                 columnNumber: 9
               },
               this
@@ -1475,14 +1501,14 @@ function ChatLayout({
           !1,
           {
             fileName: "app/components/chat/chat-layout.jsx",
-            lineNumber: 51,
+            lineNumber: 52,
             columnNumber: 7
           },
           this
         ),
         /* @__PURE__ */ jsxDEV16(ResizableHandle, { withHandle: !0 }, void 0, !1, {
           fileName: "app/components/chat/chat-layout.jsx",
-          lineNumber: 85,
+          lineNumber: 86,
           columnNumber: 7
         }, this),
         /* @__PURE__ */ jsxDEV16(ResizablePanel, { defaultSize: defaultLayout[1], minSize: 30, children: /* @__PURE__ */ jsxDEV16(
@@ -1496,13 +1522,13 @@ function ChatLayout({
           !1,
           {
             fileName: "app/components/chat/chat-layout.jsx",
-            lineNumber: 87,
+            lineNumber: 88,
             columnNumber: 9
           },
           this
         ) }, void 0, !1, {
           fileName: "app/components/chat/chat-layout.jsx",
-          lineNumber: 86,
+          lineNumber: 87,
           columnNumber: 7
         }, this)
       ]
@@ -1511,7 +1537,7 @@ function ChatLayout({
     !0,
     {
       fileName: "app/components/chat/chat-layout.jsx",
-      lineNumber: 42,
+      lineNumber: 43,
       columnNumber: 5
     },
     this
@@ -1520,7 +1546,7 @@ function ChatLayout({
 
 // app/routes/_index.jsx
 import { jsxDEV as jsxDEV17 } from "react/jsx-dev-runtime";
-function cn3(...inputs) {
+function cn2(...inputs) {
   return twMerge2(clsx2(inputs));
 }
 var extractLayout = (inputString) => {
@@ -1536,12 +1562,12 @@ function Index() {
   return /* @__PURE__ */ jsxDEV17("main", { className: "flex h-[calc(100dvh)] flex-col items-center justify-center p-4 md:px-24 py-32 gap-4 ", children: [
     /* @__PURE__ */ jsxDEV17("div", { class: "slider-thumb" }, void 0, !1, {
       fileName: "app/routes/_index.jsx",
-      lineNumber: 40,
+      lineNumber: 41,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV17("div", { className: "flex justify-between max-w-5xl w-full items-center", children: [
       /* @__PURE__ */ jsxDEV17(
-        Link3,
+        Link4,
         {
           to: "https://www.youtube.com/watch?v=FoO7Pmx0bE4",
           className: "font-bold text-gradient",
@@ -1551,22 +1577,22 @@ function Index() {
         !1,
         {
           fileName: "app/routes/_index.jsx",
-          lineNumber: 42,
+          lineNumber: 43,
           columnNumber: 9
         },
         this
       ),
       /* @__PURE__ */ jsxDEV17(
-        Link3,
+        Link4,
         {
           to: "",
-          className: cn3(
+          className: cn2(
             buttonVariants({ variant: "ghost", size: "icon" }),
             "h-10 w-10"
           ),
           children: /* @__PURE__ */ jsxDEV17(GitHubLogoIcon, { className: "w-7 h-7 text-muted-foreground" }, void 0, !1, {
             fileName: "app/routes/_index.jsx",
-            lineNumber: 55,
+            lineNumber: 56,
             columnNumber: 11
           }, this)
         },
@@ -1574,39 +1600,34 @@ function Index() {
         !1,
         {
           fileName: "app/routes/_index.jsx",
-          lineNumber: 48,
+          lineNumber: 49,
           columnNumber: 9
         },
         this
       )
     ] }, void 0, !0, {
       fileName: "app/routes/_index.jsx",
-      lineNumber: 41,
-      columnNumber: 7
-    }, this),
-    /* @__PURE__ */ jsxDEV17("p", { className: "text-[50px]" }, void 0, !1, {
-      fileName: "app/routes/_index.jsx",
-      lineNumber: 59,
+      lineNumber: 42,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV17("div", { className: "z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex  bg-background", children: /* @__PURE__ */ jsxDEV17(ChatLayout, { defaultLayout, navCollapsedSize: 8 }, void 0, !1, {
       fileName: "app/routes/_index.jsx",
-      lineNumber: 62,
+      lineNumber: 61,
       columnNumber: 9
     }, this) }, void 0, !1, {
       fileName: "app/routes/_index.jsx",
-      lineNumber: 61,
+      lineNumber: 60,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_index.jsx",
-    lineNumber: 39,
+    lineNumber: 40,
     columnNumber: 5
   }, this);
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-B3JLE5TM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-JHLF25GU.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "5671c9f7", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717906657984 }, url: "/build/manifest-5671C9F7.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-HSIU6XEI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-4R7VLIHZ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "24643b0a", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717953700632 }, url: "/build/manifest-24643B0A.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

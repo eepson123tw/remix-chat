@@ -1,11 +1,11 @@
 "use client";
 
+import { SmileIcon } from "lucide-react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { SmileIcon } from "lucide-react";
 import Picker from "@emoji-mart/react";
 
 export default function EmojiPicker({ onChange }) {

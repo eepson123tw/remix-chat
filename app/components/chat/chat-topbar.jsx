@@ -1,9 +1,10 @@
 import React from "react";
-import { Avatar, AvatarImage } from "../ui/avatar";
-// import { UserData } from "@/app/data";
+import { Link } from "@remix-run/react";
+
 import { Info, Phone, Video } from "lucide-react";
-// import Link from "next/link";
 import { cn } from "@/lib/utils";
+
+import { Avatar, AvatarImage } from "../ui/avatar";
 import { buttonVariants } from "../ui/button";
 
 export const TopbarIcons = [{ icon: Phone }, { icon: Video }, { icon: Info }];
@@ -27,23 +28,21 @@ export default function ChatTopbar({ selectedUser }) {
         </div>
       </div>
 
-      <div></div>
+      <div>
+        {TopbarIcons.map((icon, index) => (
+          <Link
+            key={index}
+            href="#"
+            className={cn(
+              buttonVariants({ variant: "ghost", size: "icon" }),
+              "h-9 w-9",
+              "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+            )}
+          >
+            <icon.icon size={20} className="text-muted-foreground" />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
-
-{
-  /* {TopbarIcons.map((icon, index) => ( */
-}
-//   <Link
-//     key={index}
-//     href="#"
-//     className={cn(
-//       buttonVariants({ variant: "ghost", size: "icon" }),
-//       "h-9 w-9",
-//       "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
-//     )}
-//   >
-//     <icon.icon size={20} className="text-muted-foreground" />
-//   </Link>
-// ))}

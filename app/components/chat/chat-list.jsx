@@ -1,8 +1,10 @@
-import { cn } from "@/lib/utils";
 import React, { useRef, useEffect } from "react";
+
+import { AnimatePresence, motion } from "framer-motion";
+
 import { Avatar, AvatarImage } from "../ui/avatar";
 import ChatBottombar from "./chat-bottombar";
-import { AnimatePresence, motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const MessageContent = ({ content }) => {
   const keywords = ["跳舞", "舞蹈", "起舞"];

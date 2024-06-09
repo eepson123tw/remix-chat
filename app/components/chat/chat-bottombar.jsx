@@ -9,17 +9,19 @@ import {
 } from "lucide-react";
 import { Link } from "@remix-run/react";
 import React, { useRef, useState } from "react";
-import { buttonVariants } from "../ui/button";
+
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { loggedInUserData } from "../../data";
-import { Textarea } from "@/components/ui/textarea";
-import EmojiPicker from "../emoji-picker";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+
+import { buttonVariants } from "../ui/button";
+import { loggedInUserData } from "../../data";
+import EmojiPicker from "../emoji-picker";
 
 export const BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
 
