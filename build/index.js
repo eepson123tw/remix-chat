@@ -44,11 +44,11 @@ import {
 } from "@remix-run/react";
 import { json } from "@remix-run/node";
 
-// app/styles/global.css
-var global_default = "/build/_assets/global-G6N42O2F.css";
-
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-NL7MBXRC.css";
+var tailwind_default = "/build/_assets/tailwind-ODE7URSA.css";
+
+// app/assets/styles/index.css
+var styles_default = "/build/_assets/index-VIG3O62D.css";
 
 // app/root.jsx
 import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
@@ -56,9 +56,8 @@ async function loader({ request }) {
   return json({ ENV: { LOCAL_PATH: process.env.VITE_SOCKET_SERVER_URL } });
 }
 var links = () => [
-  { rel: "stylesheet", href: global_default },
-  { rel: "stylesheet", href: tailwind_default },
-  ...void 0 ? [{ rel: "stylesheet", href: void 0 }] : []
+  { rel: "stylesheet", href: styles_default },
+  { rel: "stylesheet", href: tailwind_default }
 ];
 function App() {
   let { locale, ENV } = useLoaderData();
@@ -66,23 +65,23 @@ function App() {
     /* @__PURE__ */ jsxDEV2("head", { children: [
       /* @__PURE__ */ jsxDEV2(Meta, {}, void 0, !1, {
         fileName: "app/root.jsx",
-        lineNumber: 34,
+        lineNumber: 33,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Links, {}, void 0, !1, {
         fileName: "app/root.jsx",
-        lineNumber: 35,
+        lineNumber: 34,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.jsx",
-      lineNumber: 33,
+      lineNumber: 32,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV2("body", { className: "bg-red-400", children: [
       /* @__PURE__ */ jsxDEV2(Outlet, {}, void 0, !1, {
         fileName: "app/root.jsx",
-        lineNumber: 38,
+        lineNumber: 37,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(
@@ -98,34 +97,34 @@ function App() {
         !1,
         {
           fileName: "app/root.jsx",
-          lineNumber: 39,
+          lineNumber: 38,
           columnNumber: 9
         },
         this
       ),
       /* @__PURE__ */ jsxDEV2(ScrollRestoration, {}, void 0, !1, {
         fileName: "app/root.jsx",
-        lineNumber: 46,
+        lineNumber: 45,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(Scripts, {}, void 0, !1, {
         fileName: "app/root.jsx",
-        lineNumber: 47,
+        lineNumber: 46,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV2(LiveReload, {}, void 0, !1, {
         fileName: "app/root.jsx",
-        lineNumber: 48,
+        lineNumber: 47,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/root.jsx",
-      lineNumber: 37,
+      lineNumber: 36,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/root.jsx",
-    lineNumber: 32,
+    lineNumber: 31,
     columnNumber: 5
   }, this);
 }
@@ -133,10 +132,14 @@ function App() {
 // app/routes/_index.jsx
 var index_exports = {};
 __export(index_exports, {
-  default: () => Index
+  default: () => Index,
+  loader: () => loader2
 });
-import { useEffect, useState } from "react";
-import io from "socket.io-client";
+import "react";
+import { useLoaderData as useLoaderData2, Link as Link3, json as json2 } from "@remix-run/react";
+import { twMerge as twMerge2 } from "tailwind-merge";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { clsx as clsx2 } from "clsx";
 
 // @/components/ui/button.tsx
 import * as React from "react";
@@ -196,136 +199,1414 @@ var buttonVariants = cva(
 );
 Button.displayName = "Button";
 
-// app/routes/_index.jsx
+// app/cookies.server.jsx
+import { createCookie } from "@remix-run/node";
+var userPrefs = createCookie("user-prefs", {
+  maxAge: 604800
+  // one week
+});
+
+// app/components/chat/chat-layout.jsx
+import { useEffect as useEffect3, useState as useState3 } from "react";
+
+// @/components/ui/resizable.tsx
+import { DragHandleDots2Icon } from "@radix-ui/react-icons";
+import * as ResizablePrimitive from "react-resizable-panels";
 import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
-var socketURL = process.env;
-function Index() {
-  let [userName, setUserName] = useState(""), [assistantName, setAssistantName] = useState(""), [messages, setMessages] = useState([]), [message, setMessage] = useState("");
-  useEffect(() => {
-    let socket = io(socketURL);
-    return socket.on("connect", () => {
-      console.log("Connected to the server");
-    }), socket.on("$name", (name) => {
-      setUserName(name);
-    }), socket.on("$assistantName", (name) => {
-      setAssistantName(name);
-    }), socket.on("message", (data) => {
-      setMessages((prevMessages) => [...prevMessages, data]);
-    }), socket.on("error", (data) => {
-      console.error("Socket.IO error: ", data);
-    }), () => {
-      socket.disconnect();
-    };
-  }, []);
-  let sendMessage = () => {
-    io(socketURL).emit("message", `${userName}: ${message}`), setMessage("");
-  };
-  return /* @__PURE__ */ jsxDEV4("div", { children: [
-    /* @__PURE__ */ jsxDEV4("h1", { children: "\u804A\u5929\u5BA4" }, void 0, !1, {
-      fileName: "app/routes/_index.jsx",
-      lineNumber: 48,
+var ResizablePanelGroup = ({
+  className,
+  ...props
+}) => /* @__PURE__ */ jsxDEV4(
+  ResizablePrimitive.PanelGroup,
+  {
+    className: cn(
+      "flex h-full w-full data-[panel-group-direction=vertical]:flex-col",
+      className
+    ),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "@/components/ui/resizable.tsx",
+    lineNumber: 10,
+    columnNumber: 3
+  },
+  this
+), ResizablePanel = ResizablePrimitive.Panel, ResizableHandle = ({
+  withHandle,
+  className,
+  ...props
+}) => /* @__PURE__ */ jsxDEV4(
+  ResizablePrimitive.PanelResizeHandle,
+  {
+    className: cn(
+      "relative flex w-px items-center justify-center bg-border after:absolute after:inset-y-0 after:left-1/2 after:w-1 after:-translate-x-1/2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-1 data-[panel-group-direction=vertical]:h-px data-[panel-group-direction=vertical]:w-full data-[panel-group-direction=vertical]:after:left-0 data-[panel-group-direction=vertical]:after:h-1 data-[panel-group-direction=vertical]:after:w-full data-[panel-group-direction=vertical]:after:-translate-y-1/2 data-[panel-group-direction=vertical]:after:translate-x-0 [&[data-panel-group-direction=vertical]>div]:rotate-90",
+      className
+    ),
+    ...props,
+    children: withHandle && /* @__PURE__ */ jsxDEV4("div", { className: "z-10 flex h-4 w-3 items-center justify-center rounded-sm border bg-border", children: /* @__PURE__ */ jsxDEV4(DragHandleDots2Icon, { className: "h-2.5 w-2.5" }, void 0, !1, {
+      fileName: "@/components/ui/resizable.tsx",
+      lineNumber: 37,
+      columnNumber: 9
+    }, this) }, void 0, !1, {
+      fileName: "@/components/ui/resizable.tsx",
+      lineNumber: 36,
       columnNumber: 7
-    }, this),
-    /* @__PURE__ */ jsxDEV4("div", { id: "username", children: [
-      "Username: ",
-      /* @__PURE__ */ jsxDEV4("span", { children: userName }, void 0, !1, {
-        fileName: "app/routes/_index.jsx",
-        lineNumber: 50,
-        columnNumber: 19
-      }, this)
-    ] }, void 0, !0, {
-      fileName: "app/routes/_index.jsx",
-      lineNumber: 49,
-      columnNumber: 7
-    }, this),
-    /* @__PURE__ */ jsxDEV4("div", { id: "assistantName", children: [
-      "Assistant Name: ",
-      /* @__PURE__ */ jsxDEV4("span", { children: assistantName }, void 0, !1, {
-        fileName: "app/routes/_index.jsx",
-        lineNumber: 53,
-        columnNumber: 25
-      }, this)
-    ] }, void 0, !0, {
-      fileName: "app/routes/_index.jsx",
-      lineNumber: 52,
-      columnNumber: 7
-    }, this),
-    /* @__PURE__ */ jsxDEV4("div", { id: "chatbox", children: messages.map((msg, index) => {
-      let isUserMessage = msg.startsWith(`${userName}:`);
-      return /* @__PURE__ */ jsxDEV4(
-        "div",
-        {
-          className: `message ${isUserMessage ? "user" : "assistant"}`,
-          children: /* @__PURE__ */ jsxDEV4("div", { className: "message-content", children: msg }, void 0, !1, {
-            fileName: "app/routes/_index.jsx",
-            lineNumber: 63,
+    }, this)
+  },
+  void 0,
+  !1,
+  {
+    fileName: "@/components/ui/resizable.tsx",
+    lineNumber: 28,
+    columnNumber: 3
+  },
+  this
+);
+
+// app/components/sidebar.jsx
+import { Link } from "@remix-run/react";
+import { MoreHorizontal, SquarePen } from "lucide-react";
+
+// @/components/ui/tooltip.tsx
+import * as React2 from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { jsxDEV as jsxDEV5 } from "react/jsx-dev-runtime";
+var TooltipProvider = TooltipPrimitive.Provider, Tooltip = TooltipPrimitive.Root, TooltipTrigger = TooltipPrimitive.Trigger, TooltipContent = React2.forwardRef(({ className, sideOffset = 4, ...props }, ref) => /* @__PURE__ */ jsxDEV5(
+  TooltipPrimitive.Content,
+  {
+    ref,
+    sideOffset,
+    className: cn(
+      "z-50 overflow-hidden rounded-md bg-primary px-3 py-1.5 text-xs text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className
+    ),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "@/components/ui/tooltip.tsx",
+    lineNumber: 16,
+    columnNumber: 3
+  },
+  this
+));
+TooltipContent.displayName = TooltipPrimitive.Content.displayName;
+
+// app/components/ui/avatar.jsx
+import * as React3 from "react";
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import { jsxDEV as jsxDEV6 } from "react/jsx-dev-runtime";
+var Avatar = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxDEV6(
+  AvatarPrimitive.Root,
+  {
+    ref,
+    className: cn(
+      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
+      className
+    ),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "app/components/ui/avatar.jsx",
+    lineNumber: 9,
+    columnNumber: 3
+  },
+  this
+));
+Avatar.displayName = AvatarPrimitive.Root.displayName;
+var AvatarImage = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxDEV6(
+  AvatarPrimitive.Image,
+  {
+    ref,
+    className: cn("aspect-square h-full w-full", className),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "app/components/ui/avatar.jsx",
+    lineNumber: 21,
+    columnNumber: 3
+  },
+  this
+));
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+var AvatarFallback = React3.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxDEV6(
+  AvatarPrimitive.Fallback,
+  {
+    ref,
+    className: cn(
+      "flex h-full w-full items-center justify-center rounded-full bg-muted",
+      className
+    ),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "app/components/ui/avatar.jsx",
+    lineNumber: 30,
+    columnNumber: 3
+  },
+  this
+));
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+
+// app/components/sidebar.jsx
+import { jsxDEV as jsxDEV7 } from "react/jsx-dev-runtime";
+function Sidebar({ links: links2, isCollapsed, isMobile }) {
+  return /* @__PURE__ */ jsxDEV7(
+    "div",
+    {
+      "data-collapsed": isCollapsed,
+      className: "relative group flex flex-col h-full gap-4 p-2 data-[collapsed=true]:p-2 ",
+      children: [
+        !isCollapsed && /* @__PURE__ */ jsxDEV7("div", { className: "flex justify-between p-2 items-center", children: [
+          /* @__PURE__ */ jsxDEV7("div", { className: "flex gap-2 items-center text-2xl", children: [
+            /* @__PURE__ */ jsxDEV7("p", { className: "font-medium", children: "Chats" }, void 0, !1, {
+              fileName: "app/components/sidebar.jsx",
+              lineNumber: 24,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV7("span", { className: "text-zinc-300", children: [
+              "(",
+              links2.length,
+              ")"
+            ] }, void 0, !0, {
+              fileName: "app/components/sidebar.jsx",
+              lineNumber: 25,
+              columnNumber: 13
+            }, this)
+          ] }, void 0, !0, {
+            fileName: "app/components/sidebar.jsx",
+            lineNumber: 23,
+            columnNumber: 11
+          }, this),
+          /* @__PURE__ */ jsxDEV7("div", { children: [
+            /* @__PURE__ */ jsxDEV7(
+              Link,
+              {
+                href: "#",
+                className: cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "h-9 w-9"
+                ),
+                children: /* @__PURE__ */ jsxDEV7(MoreHorizontal, { size: 20 }, void 0, !1, {
+                  fileName: "app/components/sidebar.jsx",
+                  lineNumber: 36,
+                  columnNumber: 15
+                }, this)
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/sidebar.jsx",
+                lineNumber: 29,
+                columnNumber: 13
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV7(
+              Link,
+              {
+                href: "#",
+                className: cn(
+                  buttonVariants({ variant: "ghost", size: "icon" }),
+                  "h-9 w-9"
+                ),
+                children: /* @__PURE__ */ jsxDEV7(SquarePen, { size: 20 }, void 0, !1, {
+                  fileName: "app/components/sidebar.jsx",
+                  lineNumber: 46,
+                  columnNumber: 15
+                }, this)
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/sidebar.jsx",
+                lineNumber: 39,
+                columnNumber: 13
+              },
+              this
+            )
+          ] }, void 0, !0, {
+            fileName: "app/components/sidebar.jsx",
+            lineNumber: 28,
+            columnNumber: 11
+          }, this)
+        ] }, void 0, !0, {
+          fileName: "app/components/sidebar.jsx",
+          lineNumber: 22,
+          columnNumber: 9
+        }, this),
+        /* @__PURE__ */ jsxDEV7("nav", { className: "grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2", children: links2.map(
+          (link, index) => isCollapsed ? /* @__PURE__ */ jsxDEV7(TooltipProvider, { children: /* @__PURE__ */ jsxDEV7(Tooltip, { delayDuration: 0, children: [
+            /* @__PURE__ */ jsxDEV7(TooltipTrigger, { asChild: !0, children: /* @__PURE__ */ jsxDEV7(
+              Link,
+              {
+                href: "#",
+                className: cn(
+                  buttonVariants({ variant: link.variant, size: "icon" }),
+                  "h-11 w-11 md:h-16 md:w-16",
+                  link.variant === "grey" && "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                ),
+                children: [
+                  /* @__PURE__ */ jsxDEV7(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV7(
+                    AvatarImage,
+                    {
+                      src: link.avatar,
+                      alt: link.avatar,
+                      width: 6,
+                      height: 6,
+                      className: "w-10 h-10 "
+                    },
+                    void 0,
+                    !1,
+                    {
+                      fileName: "app/components/sidebar.jsx",
+                      lineNumber: 67,
+                      columnNumber: 23
+                    },
+                    this
+                  ) }, void 0, !1, {
+                    fileName: "app/components/sidebar.jsx",
+                    lineNumber: 66,
+                    columnNumber: 21
+                  }, this),
+                  " ",
+                  /* @__PURE__ */ jsxDEV7("span", { className: "sr-only", children: link.name }, void 0, !1, {
+                    fileName: "app/components/sidebar.jsx",
+                    lineNumber: 75,
+                    columnNumber: 21
+                  }, this)
+                ]
+              },
+              void 0,
+              !0,
+              {
+                fileName: "app/components/sidebar.jsx",
+                lineNumber: 57,
+                columnNumber: 19
+              },
+              this
+            ) }, void 0, !1, {
+              fileName: "app/components/sidebar.jsx",
+              lineNumber: 56,
+              columnNumber: 17
+            }, this),
+            /* @__PURE__ */ jsxDEV7(
+              TooltipContent,
+              {
+                side: "right",
+                className: "flex items-center gap-4",
+                children: link.name
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/sidebar.jsx",
+                lineNumber: 78,
+                columnNumber: 17
+              },
+              this
+            )
+          ] }, index, !0, {
+            fileName: "app/components/sidebar.jsx",
+            lineNumber: 55,
             columnNumber: 15
+          }, this) }, index, !1, {
+            fileName: "app/components/sidebar.jsx",
+            lineNumber: 54,
+            columnNumber: 13
+          }, this) : /* @__PURE__ */ jsxDEV7(
+            Link,
+            {
+              href: "#",
+              className: cn(
+                buttonVariants({ variant: link.variant, size: "xl" }),
+                link.variant === "grey" && "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink",
+                "justify-start gap-4"
+              ),
+              children: [
+                /* @__PURE__ */ jsxDEV7(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV7(
+                  AvatarImage,
+                  {
+                    src: link.avatar,
+                    alt: link.avatar,
+                    width: 6,
+                    height: 6,
+                    className: "w-10 h-10 "
+                  },
+                  void 0,
+                  !1,
+                  {
+                    fileName: "app/components/sidebar.jsx",
+                    lineNumber: 98,
+                    columnNumber: 17
+                  },
+                  this
+                ) }, void 0, !1, {
+                  fileName: "app/components/sidebar.jsx",
+                  lineNumber: 97,
+                  columnNumber: 15
+                }, this),
+                /* @__PURE__ */ jsxDEV7("div", { className: "flex flex-col max-w-28", children: [
+                  /* @__PURE__ */ jsxDEV7("span", { children: link.name }, void 0, !1, {
+                    fileName: "app/components/sidebar.jsx",
+                    lineNumber: 107,
+                    columnNumber: 17
+                  }, this),
+                  link.messages.length > 0 && /* @__PURE__ */ jsxDEV7("span", { className: "text-zinc-300 text-xs truncate ", children: [
+                    link.messages[link.messages.length - 1].name.split(" ")[0],
+                    ": ",
+                    link.messages[link.messages.length - 1].message
+                  ] }, void 0, !0, {
+                    fileName: "app/components/sidebar.jsx",
+                    lineNumber: 109,
+                    columnNumber: 19
+                  }, this)
+                ] }, void 0, !0, {
+                  fileName: "app/components/sidebar.jsx",
+                  lineNumber: 106,
+                  columnNumber: 15
+                }, this)
+              ]
+            },
+            index,
+            !0,
+            {
+              fileName: "app/components/sidebar.jsx",
+              lineNumber: 87,
+              columnNumber: 13
+            },
+            this
+          )
+        ) }, void 0, !1, {
+          fileName: "app/components/sidebar.jsx",
+          lineNumber: 51,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    !0,
+    {
+      fileName: "app/components/sidebar.jsx",
+      lineNumber: 17,
+      columnNumber: 5
+    },
+    this
+  );
+}
+
+// app/components/chat/chat.jsx
+import io from "socket.io-client";
+import { useState as useState2, useEffect as useEffect2 } from "react";
+
+// app/components/chat/chat-topbar.jsx
+import "react";
+import { Info, Phone, Video } from "lucide-react";
+
+// app/components/ui/button.jsx
+import * as React4 from "react";
+import { Slot as Slot2 } from "@radix-ui/react-slot";
+import { cva as cva2 } from "class-variance-authority";
+import { jsxDEV as jsxDEV8 } from "react/jsx-dev-runtime";
+var buttonVariants2 = cva2(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+        outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+        ghost: "hover:bg-accent/30 hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+        grey: "bg-accent/30 text-accent-foreground shadow-sm hover:bg-accent/80"
+      },
+      size: {
+        default: "h-9 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-10 rounded-md px-8",
+        icon: "h-9 w-9",
+        xl: "h-16 rounded-md px-5 "
+      }
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default"
+    }
+  }
+), Button2 = React4.forwardRef(
+  ({ className, variant, size, asChild = !1, ...props }, ref) => /* @__PURE__ */ jsxDEV8(
+    asChild ? Slot2 : "button",
+    {
+      className: cn(buttonVariants2({ variant, size, className })),
+      ref,
+      ...props
+    },
+    void 0,
+    !1,
+    {
+      fileName: "app/components/ui/button.jsx",
+      lineNumber: 43,
+      columnNumber: 7
+    },
+    this
+  )
+);
+Button2.displayName = "Button";
+
+// app/components/chat/chat-topbar.jsx
+import { jsxDEV as jsxDEV9 } from "react/jsx-dev-runtime";
+function ChatTopbar({ selectedUser }) {
+  return /* @__PURE__ */ jsxDEV9("div", { className: "w-full h-20 flex p-4 justify-between items-center border-b", children: [
+    /* @__PURE__ */ jsxDEV9("div", { className: "flex items-center gap-2", children: [
+      /* @__PURE__ */ jsxDEV9(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV9(
+        AvatarImage,
+        {
+          src: selectedUser.avatar,
+          alt: selectedUser.name,
+          width: 6,
+          height: 6,
+          className: "w-10 h-10 "
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/components/chat/chat-topbar.jsx",
+          lineNumber: 16,
+          columnNumber: 11
+        },
+        this
+      ) }, void 0, !1, {
+        fileName: "app/components/chat/chat-topbar.jsx",
+        lineNumber: 15,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV9("div", { className: "flex flex-col", children: [
+        /* @__PURE__ */ jsxDEV9("span", { className: "font-medium", children: selectedUser.name }, void 0, !1, {
+          fileName: "app/components/chat/chat-topbar.jsx",
+          lineNumber: 25,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV9("span", { className: "text-xs", children: "Active 2 mins ago" }, void 0, !1, {
+          fileName: "app/components/chat/chat-topbar.jsx",
+          lineNumber: 26,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, !0, {
+        fileName: "app/components/chat/chat-topbar.jsx",
+        lineNumber: 24,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/components/chat/chat-topbar.jsx",
+      lineNumber: 14,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV9("div", {}, void 0, !1, {
+      fileName: "app/components/chat/chat-topbar.jsx",
+      lineNumber: 30,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/components/chat/chat-topbar.jsx",
+    lineNumber: 13,
+    columnNumber: 5
+  }, this);
+}
+
+// app/components/chat/chat-list.jsx
+import { useRef as useRef2, useEffect } from "react";
+
+// app/components/chat/chat-bottombar.jsx
+import {
+  FileImage,
+  Mic,
+  Paperclip,
+  PlusCircle,
+  SendHorizontal,
+  ThumbsUp
+} from "lucide-react";
+import { Link as Link2 } from "@remix-run/react";
+import { useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+// app/data/index.js
+var userData = [
+  {
+    id: 1,
+    avatar: "https://picsum.photos/id/64/200/300",
+    messages: [
+      {
+        id: 1,
+        avatar: "https://picsum.photos/id/64/200/300",
+        name: "Jane Doe",
+        message: "Hey, Jakob"
+      },
+      {
+        id: 2,
+        avatar: "https://picsum.photos/id/11/200/300",
+        name: "Jakob Hoeg",
+        message: "Hey!"
+      }
+    ],
+    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"
+  },
+  {
+    id: 2,
+    avatar: "https://picsum.photos/id/61/200/300",
+    name: "John Doe"
+  },
+  {
+    id: 3,
+    avatar: "https://picsum.photos/id/60/200/300",
+    name: "Elizabeth Smith"
+  },
+  {
+    id: 4,
+    avatar: "https://picsum.photos/id/59/200/300",
+    name: "John Smith"
+  }
+], loggedInUserData = {
+  id: 5,
+  avatar: "https://picsum.photos/id/11/200/300",
+  name: "Jakob Hoeg"
+};
+
+// @/components/ui/textarea.tsx
+import * as React6 from "react";
+import { jsxDEV as jsxDEV10 } from "react/jsx-dev-runtime";
+var Textarea = React6.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsxDEV10(
+    "textarea",
+    {
+      className: cn(
+        "flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      ),
+      ref,
+      ...props
+    },
+    void 0,
+    !1,
+    {
+      fileName: "@/components/ui/textarea.tsx",
+      lineNumber: 11,
+      columnNumber: 7
+    },
+    this
+  )
+);
+Textarea.displayName = "Textarea";
+
+// @/components/ui/popover.tsx
+import * as React7 from "react";
+import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { jsxDEV as jsxDEV11 } from "react/jsx-dev-runtime";
+var Popover = PopoverPrimitive.Root, PopoverTrigger = PopoverPrimitive.Trigger;
+var PopoverContent = React7.forwardRef(({ className, align = "center", sideOffset = 4, ...props }, ref) => /* @__PURE__ */ jsxDEV11(PopoverPrimitive.Portal, { children: /* @__PURE__ */ jsxDEV11(
+  PopoverPrimitive.Content,
+  {
+    ref,
+    align,
+    sideOffset,
+    className: cn(
+      "z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      className
+    ),
+    ...props
+  },
+  void 0,
+  !1,
+  {
+    fileName: "@/components/ui/popover.tsx",
+    lineNumber: 17,
+    columnNumber: 5
+  },
+  this
+) }, void 0, !1, {
+  fileName: "@/components/ui/popover.tsx",
+  lineNumber: 16,
+  columnNumber: 3
+}, this));
+PopoverContent.displayName = PopoverPrimitive.Content.displayName;
+
+// app/components/emoji-picker.jsx
+import { SmileIcon } from "lucide-react";
+import Picker from "@emoji-mart/react";
+import { jsxDEV as jsxDEV12 } from "react/jsx-dev-runtime";
+function EmojiPicker({ onChange }) {
+  return /* @__PURE__ */ jsxDEV12(Popover, { children: [
+    /* @__PURE__ */ jsxDEV12(PopoverTrigger, { children: /* @__PURE__ */ jsxDEV12(SmileIcon, { className: "h-5 w-5 text-muted-foreground hover:text-foreground transition" }, void 0, !1, {
+      fileName: "app/components/emoji-picker.jsx",
+      lineNumber: 15,
+      columnNumber: 9
+    }, this) }, void 0, !1, {
+      fileName: "app/components/emoji-picker.jsx",
+      lineNumber: 14,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV12(PopoverContent, { className: "w-full", children: /* @__PURE__ */ jsxDEV12(
+      Picker,
+      {
+        emojiSize: 18,
+        theme: "light",
+        maxFrequentRows: 1,
+        onEmojiSelect: (emoji) => onChange(emoji.native)
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/components/emoji-picker.jsx",
+        lineNumber: 18,
+        columnNumber: 9
+      },
+      this
+    ) }, void 0, !1, {
+      fileName: "app/components/emoji-picker.jsx",
+      lineNumber: 17,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/components/emoji-picker.jsx",
+    lineNumber: 13,
+    columnNumber: 5
+  }, this);
+}
+
+// app/components/chat/chat-bottombar.jsx
+import { jsxDEV as jsxDEV13 } from "react/jsx-dev-runtime";
+var BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
+function ChatBottombar({ sendMessage, isMobile }) {
+  let [message, setMessage] = useState(""), inputRef = useRef(null), handleInputChange = (event) => {
+    setMessage(event.target.value);
+  }, handleThumbsUp = () => {
+    let newMessage = {
+      id: message.length + 1,
+      name: loggedInUserData.name,
+      avatar: loggedInUserData.avatar,
+      message: "\u{1F44D}"
+    };
+    sendMessage(newMessage), setMessage("");
+  }, handleSend = () => {
+    if (message.trim()) {
+      let newMessage = {
+        id: message.length + 1,
+        name: loggedInUserData.name,
+        avatar: loggedInUserData.avatar,
+        message: message.trim()
+      };
+      sendMessage(newMessage), setMessage(""), inputRef.current && inputRef.current.focus();
+    }
+  }, handleKeyPress = (event) => {
+    event.key === "Enter" && !event.shiftKey && (event.preventDefault(), handleSend()), event.key === "Enter" && event.shiftKey && (event.preventDefault(), setMessage((prev) => prev + `
+`));
+  };
+  return /* @__PURE__ */ jsxDEV13("div", { className: "p-2 flex justify-between w-full items-center gap-2", children: [
+    /* @__PURE__ */ jsxDEV13("div", { className: "flex", children: [
+      /* @__PURE__ */ jsxDEV13(Popover, { children: [
+        /* @__PURE__ */ jsxDEV13(PopoverTrigger, { asChild: !0, children: /* @__PURE__ */ jsxDEV13(
+          Link2,
+          {
+            href: "#",
+            className: cn(
+              buttonVariants2({ variant: "ghost", size: "icon" }),
+              "h-9 w-9",
+              "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+            ),
+            children: /* @__PURE__ */ jsxDEV13(PlusCircle, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+              fileName: "app/components/chat/chat-bottombar.jsx",
+              lineNumber: 87,
+              columnNumber: 15
+            }, this)
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/components/chat/chat-bottombar.jsx",
+            lineNumber: 79,
+            columnNumber: 13
+          },
+          this
+        ) }, void 0, !1, {
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 78,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV13(PopoverContent, { side: "top", className: "w-full p-2", children: message.trim() || isMobile ? /* @__PURE__ */ jsxDEV13("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ jsxDEV13(
+            Link2,
+            {
+              href: "#",
+              className: cn(
+                buttonVariants2({ variant: "ghost", size: "icon" }),
+                "h-9 w-9",
+                "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+              ),
+              children: /* @__PURE__ */ jsxDEV13(Mic, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+                fileName: "app/components/chat/chat-bottombar.jsx",
+                lineNumber: 101,
+                columnNumber: 19
+              }, this)
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/components/chat/chat-bottombar.jsx",
+              lineNumber: 93,
+              columnNumber: 17
+            },
+            this
+          ),
+          BottombarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV13(
+            Link2,
+            {
+              href: "#",
+              className: cn(
+                buttonVariants2({ variant: "ghost", size: "icon" }),
+                "h-9 w-9",
+                "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+              ),
+              children: /* @__PURE__ */ jsxDEV13(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+                fileName: "app/components/chat/chat-bottombar.jsx",
+                lineNumber: 113,
+                columnNumber: 21
+              }, this)
+            },
+            index,
+            !1,
+            {
+              fileName: "app/components/chat/chat-bottombar.jsx",
+              lineNumber: 104,
+              columnNumber: 19
+            },
+            this
+          ))
+        ] }, void 0, !0, {
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 92,
+          columnNumber: 15
+        }, this) : /* @__PURE__ */ jsxDEV13(
+          Link2,
+          {
+            href: "#",
+            className: cn(
+              buttonVariants2({ variant: "ghost", size: "icon" }),
+              "h-9 w-9",
+              "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+            ),
+            children: /* @__PURE__ */ jsxDEV13(Mic, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+              fileName: "app/components/chat/chat-bottombar.jsx",
+              lineNumber: 126,
+              columnNumber: 17
+            }, this)
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/components/chat/chat-bottombar.jsx",
+            lineNumber: 118,
+            columnNumber: 15
+          },
+          this
+        ) }, void 0, !1, {
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 90,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, !0, {
+        fileName: "app/components/chat/chat-bottombar.jsx",
+        lineNumber: 77,
+        columnNumber: 9
+      }, this),
+      !message.trim() && !isMobile && /* @__PURE__ */ jsxDEV13("div", { className: "flex", children: BottombarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV13(
+        Link2,
+        {
+          href: "#",
+          className: cn(
+            buttonVariants2({ variant: "ghost", size: "icon" }),
+            "h-9 w-9",
+            "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+          ),
+          children: /* @__PURE__ */ jsxDEV13(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+            fileName: "app/components/chat/chat-bottombar.jsx",
+            lineNumber: 143,
+            columnNumber: 17
           }, this)
         },
         index,
         !1,
         {
-          fileName: "app/routes/_index.jsx",
-          lineNumber: 59,
-          columnNumber: 13
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 134,
+          columnNumber: 15
         },
         this
-      );
-    }) }, void 0, !1, {
-      fileName: "app/routes/_index.jsx",
-      lineNumber: 55,
+      )) }, void 0, !1, {
+        fileName: "app/components/chat/chat-bottombar.jsx",
+        lineNumber: 132,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, !0, {
+      fileName: "app/components/chat/chat-bottombar.jsx",
+      lineNumber: 76,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV4("div", { id: "inputContainer", children: [
-      /* @__PURE__ */ jsxDEV4(
-        "input",
+    /* @__PURE__ */ jsxDEV13(AnimatePresence, { initial: !1, children: [
+      /* @__PURE__ */ jsxDEV13(
+        motion.div,
         {
-          type: "text",
-          id: "messageInput",
-          placeholder: "Type a message...",
-          value: message,
-          onChange: (e) => setMessage(e.target.value)
+          className: "w-full relative",
+          layout: !0,
+          initial: { opacity: 0, scale: 1 },
+          animate: { opacity: 1, scale: 1 },
+          exit: { opacity: 0, scale: 1 },
+          transition: {
+            opacity: { duration: 0.05 },
+            layout: {
+              type: "spring",
+              bounce: 0.15
+            }
+          },
+          children: [
+            /* @__PURE__ */ jsxDEV13(
+              Textarea,
+              {
+                autoComplete: "off",
+                value: message,
+                ref: inputRef,
+                onKeyDown: handleKeyPress,
+                onChange: handleInputChange,
+                name: "message",
+                placeholder: "Aa",
+                className: " w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/chat/chat-bottombar.jsx",
+                lineNumber: 166,
+                columnNumber: 11
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV13("div", { className: "absolute right-2 bottom-0.5  ", children: /* @__PURE__ */ jsxDEV13(
+              EmojiPicker,
+              {
+                onChange: (value) => {
+                  setMessage(message + value), inputRef.current && inputRef.current.focus();
+                }
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/chat/chat-bottombar.jsx",
+                lineNumber: 177,
+                columnNumber: 13
+              },
+              this
+            ) }, void 0, !1, {
+              fileName: "app/components/chat/chat-bottombar.jsx",
+              lineNumber: 176,
+              columnNumber: 11
+            }, this)
+          ]
         },
-        void 0,
-        !1,
+        "input",
+        !0,
         {
-          fileName: "app/routes/_index.jsx",
-          lineNumber: 69,
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 151,
           columnNumber: 9
         },
         this
       ),
-      /* @__PURE__ */ jsxDEV4(
-        Button,
+      message.trim() ? /* @__PURE__ */ jsxDEV13(
+        Link2,
         {
-          id: "sendButton",
-          className: "text-3xl font-bold underline bg-black",
-          onClick: sendMessage,
-          children: "Send"
+          href: "#",
+          className: cn(
+            buttonVariants2({ variant: "ghost", size: "icon" }),
+            "h-9 w-9",
+            "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
+          ),
+          onClick: handleSend,
+          children: /* @__PURE__ */ jsxDEV13(SendHorizontal, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+            fileName: "app/components/chat/chat-bottombar.jsx",
+            lineNumber: 198,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 189,
+          columnNumber: 11
+        },
+        this
+      ) : /* @__PURE__ */ jsxDEV13(
+        Link2,
+        {
+          href: "#",
+          className: cn(
+            buttonVariants2({ variant: "ghost", size: "icon" }),
+            "h-9 w-9",
+            "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
+          ),
+          onClick: handleThumbsUp,
+          children: /* @__PURE__ */ jsxDEV13(ThumbsUp, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+            fileName: "app/components/chat/chat-bottombar.jsx",
+            lineNumber: 210,
+            columnNumber: 13
+          }, this)
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/components/chat/chat-bottombar.jsx",
+          lineNumber: 201,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, !0, {
+      fileName: "app/components/chat/chat-bottombar.jsx",
+      lineNumber: 150,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/components/chat/chat-bottombar.jsx",
+    lineNumber: 75,
+    columnNumber: 5
+  }, this);
+}
+
+// app/components/chat/chat-list.jsx
+import { AnimatePresence as AnimatePresence2, motion as motion2 } from "framer-motion";
+import { jsxDEV as jsxDEV14 } from "react/jsx-dev-runtime";
+var MessageContent = ({ content }) => {
+  let keywords = ["\u8DF3\u821E", "\u821E\u8E48", "\u8D77\u821E"], regex = new RegExp(`(${keywords.join("|")})`, "gi"), parts = content.split(regex);
+  return /* @__PURE__ */ jsxDEV14("span", { className: "bg-accent p-3 rounded-md max-w-xs", children: parts.map(
+    (part, index) => keywords.some(
+      (keyword) => keyword.toLowerCase() === part.toLowerCase()
+    ) ? /* @__PURE__ */ jsxDEV14("strong", { className: "text-gradient", children: part }, index, !1, {
+      fileName: "app/components/chat/chat-list.jsx",
+      lineNumber: 18,
+      columnNumber: 11
+    }, this) : part
+  ) }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 13,
+    columnNumber: 5
+  }, this);
+};
+function ChatList({
+  messages,
+  selectedUser,
+  sendMessage,
+  isMobile
+}) {
+  let messagesContainerRef = useRef2(null);
+  return useEffect(() => {
+    messagesContainerRef.current && (messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight);
+  }, [messages]), /* @__PURE__ */ jsxDEV14("div", { className: "w-full overflow-y-auto overflow-x-hidden h-full flex flex-col", children: [
+    /* @__PURE__ */ jsxDEV14(
+      "div",
+      {
+        ref: messagesContainerRef,
+        className: "w-full overflow-y-auto overflow-x-hidden h-full flex flex-col",
+        children: /* @__PURE__ */ jsxDEV14(AnimatePresence2, { children: messages?.map((message, index) => /* @__PURE__ */ jsxDEV14(
+          motion2.div,
+          {
+            layout: !0,
+            initial: { opacity: 0, scale: 1, y: 50, x: 0 },
+            animate: { opacity: 1, scale: 1, y: 0, x: 0 },
+            exit: { opacity: 0, scale: 1, y: 1, x: 0 },
+            transition: {
+              opacity: { duration: 0.1 },
+              layout: {
+                type: "spring",
+                bounce: 0.3,
+                duration: messages.indexOf(message) * 0.05 + 0.2
+              }
+            },
+            style: {
+              originX: 0.5,
+              originY: 0.5
+            },
+            className: cn(
+              "flex flex-col gap-2 p-4 whitespace-pre-wrap",
+              message.name !== selectedUser.name ? "items-end" : "items-start"
+            ),
+            children: /* @__PURE__ */ jsxDEV14("div", { className: "flex gap-3 items-center", children: [
+              message.name === selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
+                AvatarImage,
+                {
+                  src: message.avatar,
+                  alt: message.name,
+                  width: 6,
+                  height: 6
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "app/components/chat/chat-list.jsx",
+                  lineNumber: 78,
+                  columnNumber: 21
+                },
+                this
+              ) }, void 0, !1, {
+                fileName: "app/components/chat/chat-list.jsx",
+                lineNumber: 77,
+                columnNumber: 19
+              }, this),
+              /* @__PURE__ */ jsxDEV14(MessageContent, { content: message.message }, void 0, !1, {
+                fileName: "app/components/chat/chat-list.jsx",
+                lineNumber: 86,
+                columnNumber: 17
+              }, this),
+              message.name !== selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
+                AvatarImage,
+                {
+                  src: message.avatar,
+                  alt: message.name,
+                  width: 6,
+                  height: 6
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "app/components/chat/chat-list.jsx",
+                  lineNumber: 89,
+                  columnNumber: 21
+                },
+                this
+              ) }, void 0, !1, {
+                fileName: "app/components/chat/chat-list.jsx",
+                lineNumber: 88,
+                columnNumber: 19
+              }, this)
+            ] }, void 0, !0, {
+              fileName: "app/components/chat/chat-list.jsx",
+              lineNumber: 75,
+              columnNumber: 15
+            }, this)
+          },
+          index,
+          !1,
+          {
+            fileName: "app/components/chat/chat-list.jsx",
+            lineNumber: 52,
+            columnNumber: 13
+          },
+          this
+        )) }, void 0, !1, {
+          fileName: "app/components/chat/chat-list.jsx",
+          lineNumber: 50,
+          columnNumber: 9
+        }, this)
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/components/chat/chat-list.jsx",
+        lineNumber: 46,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV14(ChatBottombar, { sendMessage, isMobile }, void 0, !1, {
+      fileName: "app/components/chat/chat-list.jsx",
+      lineNumber: 102,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, !0, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 45,
+    columnNumber: 5
+  }, this);
+}
+
+// app/components/chat/chat.jsx
+import { jsxDEV as jsxDEV15 } from "react/jsx-dev-runtime";
+var socketURL = process.env;
+function Chat({ selectedUser, isMobile }) {
+  let [userName, setUserName] = useState2("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"), [assistantName, setAssistantName] = useState2(""), [messages, setMessages] = useState2([]), [message, setMessage] = useState2("");
+  return useEffect2(() => {
+    let socket = io(socketURL);
+    socket.on("connect", () => {
+      console.log("Connected to the server");
+    }), socket.on("$name", (name) => {
+      setUserName("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0");
+    }), socket.on("$assistantName", (name) => {
+      setAssistantName(name);
+    }), socket.on("message", (data) => {
+      console.log(data), data.includes("\u7BA1\u5BB6") && setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          id: 1,
+          avatar: "https://picsum.photos/id/20/200/300",
+          name: assistantName,
+          message: data
+        }
+      ]);
+    }), socket.on("error", (data) => {
+      console.error("Socket.IO error: ", data);
+    });
+  }, []), /* @__PURE__ */ jsxDEV15("div", { className: "flex flex-col justify-between w-full h-full", children: [
+    /* @__PURE__ */ jsxDEV15(ChatTopbar, { selectedUser }, void 0, !1, {
+      fileName: "app/components/chat/chat.jsx",
+      lineNumber: 65,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV15(
+      ChatList,
+      {
+        messages,
+        selectedUser,
+        sendMessage: (newMessage) => {
+          io(socketURL).emit("message", `${userName}: ${newMessage.message}`), setMessages((prevMessages) => [
+            ...prevMessages,
+            {
+              id: 1,
+              avatar: "https://picsum.photos/id/64/200/300",
+              name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0",
+              message: newMessage.message
+            }
+          ]);
+        },
+        isMobile
+      },
+      void 0,
+      !1,
+      {
+        fileName: "app/components/chat/chat.jsx",
+        lineNumber: 67,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, !0, {
+    fileName: "app/components/chat/chat.jsx",
+    lineNumber: 64,
+    columnNumber: 5
+  }, this);
+}
+
+// app/components/chat/chat-layout.jsx
+import { jsxDEV as jsxDEV16 } from "react/jsx-dev-runtime";
+function ChatLayout({
+  defaultLayout = [320, 480],
+  defaultCollapsed = !1,
+  navCollapsedSize
+}) {
+  let [isCollapsed, setIsCollapsed] = useState3(defaultCollapsed), [selectedUser, setSelectedUser] = useState3(userData[0]), [isMobile, setIsMobile] = useState3(!1);
+  return useEffect3(() => {
+    let checkScreenWidth = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    return checkScreenWidth(), window.addEventListener("resize", checkScreenWidth), () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
+  }, []), /* @__PURE__ */ jsxDEV16(
+    ResizablePanelGroup,
+    {
+      direction: "horizontal",
+      onLayout: (sizes) => {
+        document.cookie = `react-resizable-panels:layout=${JSON.stringify(
+          sizes
+        )}`;
+      },
+      className: "h-full items-stretch",
+      children: [
+        /* @__PURE__ */ jsxDEV16(
+          ResizablePanel,
+          {
+            defaultSize: defaultLayout[0],
+            collapsedSize: navCollapsedSize,
+            collapsible: !0,
+            minSize: isMobile ? 0 : 24,
+            maxSize: isMobile ? 8 : 30,
+            onCollapse: () => {
+              setIsCollapsed(!0), document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
+                !0
+              )}`;
+            },
+            onExpand: () => {
+              setIsCollapsed(!1), document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
+                !1
+              )}`;
+            },
+            className: cn(
+              isCollapsed && "min-w-[50px] md:min-w-[70px] transition-all duration-300 ease-in-out"
+            ),
+            children: /* @__PURE__ */ jsxDEV16(
+              Sidebar,
+              {
+                isCollapsed: isCollapsed || isMobile,
+                links: userData.map((user) => ({
+                  name: user.name,
+                  messages: user.messages ?? [],
+                  avatar: user.avatar,
+                  variant: selectedUser.name === user.name ? "grey" : "ghost"
+                })),
+                isMobile
+              },
+              void 0,
+              !1,
+              {
+                fileName: "app/components/chat/chat-layout.jsx",
+                lineNumber: 74,
+                columnNumber: 9
+              },
+              this
+            )
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/components/chat/chat-layout.jsx",
+            lineNumber: 51,
+            columnNumber: 7
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV16(ResizableHandle, { withHandle: !0 }, void 0, !1, {
+          fileName: "app/components/chat/chat-layout.jsx",
+          lineNumber: 85,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV16(ResizablePanel, { defaultSize: defaultLayout[1], minSize: 30, children: /* @__PURE__ */ jsxDEV16(
+          Chat,
+          {
+            messages: selectedUser.messages,
+            selectedUser,
+            isMobile
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/components/chat/chat-layout.jsx",
+            lineNumber: 87,
+            columnNumber: 9
+          },
+          this
+        ) }, void 0, !1, {
+          fileName: "app/components/chat/chat-layout.jsx",
+          lineNumber: 86,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    !0,
+    {
+      fileName: "app/components/chat/chat-layout.jsx",
+      lineNumber: 42,
+      columnNumber: 5
+    },
+    this
+  );
+}
+
+// app/routes/_index.jsx
+import { jsxDEV as jsxDEV17 } from "react/jsx-dev-runtime";
+function cn3(...inputs) {
+  return twMerge2(clsx2(inputs));
+}
+var extractLayout = (inputString) => {
+  let regex = /react-resizable-panels:layout=\[([0-9,]+)\];/, match = inputString.match(regex);
+  return match ? match[1].split(",").map(Number) : null;
+};
+async function loader2({ request }) {
+  let cookieHeader = request.headers.get("cookie"), cookie = await userPrefs.parse(cookieHeader) || {};
+  return json2({ cookies: cookieHeader, cookie });
+}
+function Index() {
+  let { cookies, cookie } = useLoaderData2(), layout = cookies ? extractLayout(cookies) : null, defaultLayout = layout || void 0;
+  return /* @__PURE__ */ jsxDEV17("main", { className: "flex h-[calc(100dvh)] flex-col items-center justify-center p-4 md:px-24 py-32 gap-4 ", children: [
+    /* @__PURE__ */ jsxDEV17("div", { class: "slider-thumb" }, void 0, !1, {
+      fileName: "app/routes/_index.jsx",
+      lineNumber: 40,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV17("div", { className: "flex justify-between max-w-5xl w-full items-center", children: [
+      /* @__PURE__ */ jsxDEV17(
+        Link3,
+        {
+          to: "https://www.youtube.com/watch?v=FoO7Pmx0bE4",
+          className: "font-bold text-gradient",
+          children: "Good Night Ojosama"
         },
         void 0,
         !1,
         {
           fileName: "app/routes/_index.jsx",
-          lineNumber: 76,
+          lineNumber: 42,
+          columnNumber: 9
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV17(
+        Link3,
+        {
+          to: "",
+          className: cn3(
+            buttonVariants({ variant: "ghost", size: "icon" }),
+            "h-10 w-10"
+          ),
+          children: /* @__PURE__ */ jsxDEV17(GitHubLogoIcon, { className: "w-7 h-7 text-muted-foreground" }, void 0, !1, {
+            fileName: "app/routes/_index.jsx",
+            lineNumber: 55,
+            columnNumber: 11
+          }, this)
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/routes/_index.jsx",
+          lineNumber: 48,
           columnNumber: 9
         },
         this
       )
     ] }, void 0, !0, {
       fileName: "app/routes/_index.jsx",
-      lineNumber: 68,
+      lineNumber: 41,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV17("p", { className: "text-[50px]" }, void 0, !1, {
+      fileName: "app/routes/_index.jsx",
+      lineNumber: 59,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV17("div", { className: "z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex  bg-background", children: /* @__PURE__ */ jsxDEV17(ChatLayout, { defaultLayout, navCollapsedSize: 8 }, void 0, !1, {
+      fileName: "app/routes/_index.jsx",
+      lineNumber: 62,
+      columnNumber: 9
+    }, this) }, void 0, !1, {
+      fileName: "app/routes/_index.jsx",
+      lineNumber: 61,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/_index.jsx",
-    lineNumber: 47,
+    lineNumber: 39,
     columnNumber: 5
   }, this);
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-7RQHCKFD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-SFDIGTAH.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-GEE7B2CC.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-7Q6MOPOF.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "7763db28", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717866286931 }, url: "/build/manifest-7763DB28.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-B3JLE5TM.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-JHLF25GU.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "5671c9f7", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717906657984 }, url: "/build/manifest-5671C9F7.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -10,19 +10,18 @@ import {
   useNavigation,
 } from "@remix-run/react";
 import { cssBundleHref } from "@remix-run/css-bundle";
-import { json, LinksFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 
-import styles from "./styles/global.css";
-import tailstyles from "./tailwind.css";
+import styles from "./tailwind.css";
+import configcss from "./assets/styles/index.css";
 
 export async function loader({ request }) {
   return json({ ENV: { LOCAL_PATH: process.env.VITE_SOCKET_SERVER_URL } });
 }
 
 export const links = () => [
+  { rel: "stylesheet", href: configcss },
   { rel: "stylesheet", href: styles },
-  { rel: "stylesheet", href: tailstyles },
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
 export default function App() {

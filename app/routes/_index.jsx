@@ -1,86 +1,66 @@
 import { useEffect, useState } from "react";
-import io from "socket.io-client";
+import { useLoaderData, Link, json } from "@remix-run/react";
+import { twMerge } from "tailwind-merge";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { clsx } from "clsx";
+
 import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
-const socketURL = process.env;
+import { userPrefs } from "~/cookies.server";
+import ChatLayout from "../components/chat/chat-layout";
+
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+const extractLayout = (inputString) => {
+  const regex = /react-resizable-panels:layout=\[([0-9,]+)\];/;
+  const match = inputString.match(regex);
+  if (match) {
+    return match[1].split(",").map(Number);
+  }
+  return null;
+};
+
+export async function loader({ request }) {
+  const cookieHeader = request.headers.get("cookie");
+  const cookie = (await userPrefs.parse(cookieHeader)) || {};
+  return json({ cookies: cookieHeader, cookie });
+}
+
 export default function Index() {
-  const [userName, setUserName] = useState("");
-  const [assistantName, setAssistantName] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [message, setMessage] = useState("");
+  const { cookies, cookie } = useLoaderData();
 
-  useEffect(() => {
-    const socket = io(socketURL);
-
-    socket.on("connect", () => {
-      console.log("Connected to the server");
-    });
-
-    socket.on("$name", (name) => {
-      setUserName(name);
-    });
-
-    socket.on("$assistantName", (name) => {
-      setAssistantName(name);
-    });
-
-    socket.on("message", (data) => {
-      setMessages((prevMessages) => [...prevMessages, data]);
-    });
-
-    socket.on("error", (data) => {
-      console.error("Socket.IO error: ", data);
-    });
-
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
-
-  const sendMessage = () => {
-    const socket = io(socketURL);
-    socket.emit("message", `${userName}: ${message}`);
-    setMessage("");
-  };
+  const layout = cookies ? extractLayout(cookies) : null;
+  const defaultLayout = layout ? layout : undefined;
 
   return (
-    <div>
-      <h1>聊天室</h1>
-      <div id="username">
-        Username: <span>{userName}</span>
-      </div>
-      <div id="assistantName">
-        Assistant Name: <span>{assistantName}</span>
-      </div>
-      <div id="chatbox">
-        {messages.map((msg, index) => {
-          const isUserMessage = msg.startsWith(`${userName}:`);
-          return (
-            <div
-              key={index}
-              className={`message ${isUserMessage ? "user" : "assistant"}`}
-            >
-              <div className="message-content">{msg}</div>
-            </div>
-          );
-        })}
-      </div>
-      <div id="inputContainer">
-        <input
-          type="text"
-          id="messageInput"
-          placeholder="Type a message..."
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <Button
-          id="sendButton"
-          className="text-3xl font-bold underline bg-black"
-          onClick={sendMessage}
+    <main className="flex h-[calc(100dvh)] flex-col items-center justify-center p-4 md:px-24 py-32 gap-4 ">
+      <div class="slider-thumb"></div>
+      <div className="flex justify-between max-w-5xl w-full items-center">
+        <Link
+          to="https://www.youtube.com/watch?v=FoO7Pmx0bE4"
+          className="font-bold text-gradient"
         >
-          Send
-        </Button>
+          Good Night Ojosama
+        </Link>
+        <Link
+          to=""
+          className={cn(
+            buttonVariants({ variant: "ghost", size: "icon" }),
+            "h-10 w-10"
+          )}
+        >
+          <GitHubLogoIcon className="w-7 h-7 text-muted-foreground" />
+        </Link>
       </div>
-    </div>
+
+      <p className="text-[50px]"></p>
+
+      <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex  bg-background">
+        <ChatLayout defaultLayout={defaultLayout} navCollapsedSize={8} />
+      </div>
+    </main>
   );
 }
