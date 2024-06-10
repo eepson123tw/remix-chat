@@ -15,7 +15,7 @@ import Chat from "./chat";
 const socketURL = process.env;
 
 const fetchActiveChatRooms = async () => {
-  const response = await fetch(socketURL + "/messages/getActiveChatRooms");
+  const response = await fetch(socketURL + "messages/getActiveChatRooms");
   const data = await response.json();
   return data;
 };
