@@ -17,7 +17,7 @@ export default function Chat({ selectedUser, isMobile }) {
     const socket = io(socketURL);
 
     socket.on("connect", () => {
-      console.log("Connected to the server");
+      console.warn("Connected to the server");
     });
 
     socket.on("$name", (name) => {

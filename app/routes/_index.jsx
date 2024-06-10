@@ -38,7 +38,7 @@ export default function Index() {
 
   return (
     <main className="flex h-[calc(100dvh)] flex-col items-center justify-center p-4 md:px-24 py-32 gap-4 ">
-      <div class="slider-thumb"></div>
+      <div className="slider-thumb"></div>
       <div className="flex justify-between max-w-5xl w-full items-center">
         <Link
           to="https://www.youtube.com/watch?v=FoO7Pmx0bE4"
@@ -57,7 +57,7 @@ export default function Index() {
         </Link>
       </div>
 
-      <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex  bg-background">
+      <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex chat-wrapper">
         <ChatLayout defaultLayout={defaultLayout} navCollapsedSize={8} />
       </div>
     </main>

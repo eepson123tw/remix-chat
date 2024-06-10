@@ -45,7 +45,7 @@ import {
 import { json } from "@remix-run/node";
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-UFJYNATY.css";
+var tailwind_default = "/build/_assets/tailwind-GQDHACDD.css";
 
 // app/assets/styles/index.css
 var styles_default = "/build/_assets/index-VIG3O62D.css";
@@ -665,8 +665,59 @@ Button2.displayName = "Button";
 
 // app/components/chat/chat-topbar.jsx
 import { jsxDEV as jsxDEV9 } from "react/jsx-dev-runtime";
-var TopbarIcons = [{ icon: Phone }, { icon: Video }, { icon: Info }];
-function ChatTopbar({ selectedUser }) {
+var TopbarIcons = [
+  { icon: Phone, content: "Phone" },
+  { icon: Video, content: "Video" },
+  { icon: Info, content: "Info" }
+], TooltipContentWrapper = ({
+  children,
+  index,
+  variant = "grey",
+  icon
+}) => /* @__PURE__ */ jsxDEV9(TooltipProvider, { children: /* @__PURE__ */ jsxDEV9(Tooltip, { delayDuration: 0, children: [
+  /* @__PURE__ */ jsxDEV9(TooltipTrigger, { asChild: !0, children: /* @__PURE__ */ jsxDEV9(
+    Link2,
+    {
+      href: "#",
+      className: cn(
+        buttonVariants2({ variant: "ghost", size: "icon" }),
+        "h-9 w-9",
+        "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
+      ),
+      children: /* @__PURE__ */ jsxDEV9(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
+        fileName: "app/components/chat/chat-topbar.jsx",
+        lineNumber: 41,
+        columnNumber: 13
+      }, this)
+    },
+    index,
+    !1,
+    {
+      fileName: "app/components/chat/chat-topbar.jsx",
+      lineNumber: 32,
+      columnNumber: 11
+    },
+    this
+  ) }, void 0, !1, {
+    fileName: "app/components/chat/chat-topbar.jsx",
+    lineNumber: 31,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV9(TooltipContent, { side: "right", className: "flex items-center gap-4", children: icon.content }, void 0, !1, {
+    fileName: "app/components/chat/chat-topbar.jsx",
+    lineNumber: 44,
+    columnNumber: 9
+  }, this)
+] }, icon.content, !0, {
+  fileName: "app/components/chat/chat-topbar.jsx",
+  lineNumber: 30,
+  columnNumber: 7
+}, this) }, icon.content, !1, {
+  fileName: "app/components/chat/chat-topbar.jsx",
+  lineNumber: 29,
+  columnNumber: 5
+}, this);
+function ChatTopBar({ selectedUser }) {
   return /* @__PURE__ */ jsxDEV9("div", { className: "w-full h-20 flex p-4 justify-between items-center border-b", children: [
     /* @__PURE__ */ jsxDEV9("div", { className: "flex items-center gap-2", children: [
       /* @__PURE__ */ jsxDEV9(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV9(
@@ -682,67 +733,58 @@ function ChatTopbar({ selectedUser }) {
         !1,
         {
           fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 17,
+          lineNumber: 57,
           columnNumber: 11
         },
         this
       ) }, void 0, !1, {
         fileName: "app/components/chat/chat-topbar.jsx",
-        lineNumber: 16,
+        lineNumber: 56,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV9("div", { className: "flex flex-col", children: [
         /* @__PURE__ */ jsxDEV9("span", { className: "font-medium", children: selectedUser.name }, void 0, !1, {
           fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 26,
+          lineNumber: 66,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ jsxDEV9("span", { className: "text-xs", children: "Active 2 mins ago" }, void 0, !1, {
           fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 27,
+          lineNumber: 67,
           columnNumber: 11
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/chat/chat-topbar.jsx",
-        lineNumber: 25,
+        lineNumber: 65,
         columnNumber: 9
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/chat/chat-topbar.jsx",
-      lineNumber: 15,
+      lineNumber: 55,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV9("div", { children: TopbarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV9(
-      Link2,
+      TooltipContentWrapper,
       {
-        href: "#",
-        className: cn(
-          buttonVariants2({ variant: "ghost", size: "icon" }),
-          "h-9 w-9",
-          "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
-        ),
-        children: /* @__PURE__ */ jsxDEV9(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
-          fileName: "app/components/chat/chat-topbar.jsx",
-          lineNumber: 42,
-          columnNumber: 13
-        }, this)
+        index,
+        icon
       },
-      index,
+      icon.content,
       !1,
       {
         fileName: "app/components/chat/chat-topbar.jsx",
-        lineNumber: 33,
+        lineNumber: 72,
         columnNumber: 11
       },
       this
     )) }, void 0, !1, {
       fileName: "app/components/chat/chat-topbar.jsx",
-      lineNumber: 31,
+      lineNumber: 70,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat-topbar.jsx",
-    lineNumber: 14,
+    lineNumber: 54,
     columnNumber: 5
   }, this);
 }
@@ -1234,7 +1276,7 @@ var MessageContent = ({ content }) => {
     lineNumber: 15,
     columnNumber: 5
   }, this);
-}, MessageLoading = ({ isLoadingMessage }) => isLoadingMessage ? /* @__PURE__ */ jsxDEV14("div", { className: "bg-accent p-4 rounded-md max-w-xs  whitespace-pre-wrap loading-wrap", children: /* @__PURE__ */ jsxDEV14("div", { class: "loading loadingAnimation", children: [
+}, MessageLoading = ({ isLoadingMessage }) => isLoadingMessage ? /* @__PURE__ */ jsxDEV14("div", { className: "bg-accent p-4 rounded-md max-w-xs  whitespace-pre-wrap loading-wrap", children: /* @__PURE__ */ jsxDEV14("div", { className: "loading loadingAnimation", children: [
   /* @__PURE__ */ jsxDEV14("span", { children: "L" }, void 0, !1, {
     fileName: "app/components/chat/chat-list.jsx",
     lineNumber: 35,
@@ -1355,18 +1397,18 @@ function ChatList({
                   !1,
                   {
                     fileName: "app/components/chat/chat-list.jsx",
-                    lineNumber: 120,
+                    lineNumber: 121,
                     columnNumber: 21
                   },
                   this
                 ) }, void 0, !1, {
                   fileName: "app/components/chat/chat-list.jsx",
-                  lineNumber: 119,
+                  lineNumber: 120,
                   columnNumber: 19
                 }, this),
                 /* @__PURE__ */ jsxDEV14(MessageContent, { content: message.message }, void 0, !1, {
                   fileName: "app/components/chat/chat-list.jsx",
-                  lineNumber: 128,
+                  lineNumber: 129,
                   columnNumber: 17
                 }, this),
                 message.name !== selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
@@ -1381,22 +1423,22 @@ function ChatList({
                   !1,
                   {
                     fileName: "app/components/chat/chat-list.jsx",
-                    lineNumber: 132,
+                    lineNumber: 133,
                     columnNumber: 21
                   },
                   this
                 ) }, void 0, !1, {
                   fileName: "app/components/chat/chat-list.jsx",
-                  lineNumber: 131,
+                  lineNumber: 132,
                   columnNumber: 19
                 }, this)
               ] }, void 0, !0, {
                 fileName: "app/components/chat/chat-list.jsx",
-                lineNumber: 117,
+                lineNumber: 118,
                 columnNumber: 15
               }, this)
             },
-            void 0,
+            index,
             !1,
             {
               fileName: "app/components/chat/chat-list.jsx",
@@ -1414,13 +1456,13 @@ function ChatList({
             !1,
             {
               fileName: "app/components/chat/chat-list.jsx",
-              lineNumber: 144,
+              lineNumber: 145,
               columnNumber: 13
             },
             this
           ) }, void 0, !1, {
             fileName: "app/components/chat/chat-list.jsx",
-            lineNumber: 143,
+            lineNumber: 144,
             columnNumber: 11
           }, this)
         ] }, void 0, !0, {
@@ -1440,7 +1482,7 @@ function ChatList({
     ),
     /* @__PURE__ */ jsxDEV14(ChatBottombar, { sendMessage, isMobile }, void 0, !1, {
       fileName: "app/components/chat/chat-list.jsx",
-      lineNumber: 150,
+      lineNumber: 151,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
@@ -1458,7 +1500,7 @@ function Chat({ selectedUser, isMobile }) {
   return useEffect2(() => {
     let socket = io(socketURL);
     socket.on("connect", () => {
-      console.log("Connected to the server");
+      console.warn("Connected to the server");
     }), socket.on("$name", (name) => {
       setUserName("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0");
     }), socket.on("$assistantName", (name) => {
@@ -1477,7 +1519,7 @@ function Chat({ selectedUser, isMobile }) {
       console.error("Socket.IO error: ", data);
     });
   }, []), /* @__PURE__ */ jsxDEV15("div", { className: "flex flex-col justify-between w-full h-full", children: [
-    /* @__PURE__ */ jsxDEV15(ChatTopbar, { selectedUser }, void 0, !1, {
+    /* @__PURE__ */ jsxDEV15(ChatTopBar, { selectedUser }, void 0, !1, {
       fileName: "app/components/chat/chat.jsx",
       lineNumber: 67,
       columnNumber: 7
@@ -1649,7 +1691,7 @@ async function loader2({ request }) {
 function Index() {
   let { cookies, cookie } = useLoaderData2(), layout = cookies ? extractLayout(cookies) : null, defaultLayout = layout || void 0;
   return /* @__PURE__ */ jsxDEV17("main", { className: "flex h-[calc(100dvh)] flex-col items-center justify-center p-4 md:px-24 py-32 gap-4 ", children: [
-    /* @__PURE__ */ jsxDEV17("div", { class: "slider-thumb" }, void 0, !1, {
+    /* @__PURE__ */ jsxDEV17("div", { className: "slider-thumb" }, void 0, !1, {
       fileName: "app/routes/_index.jsx",
       lineNumber: 41,
       columnNumber: 7
@@ -1699,7 +1741,7 @@ function Index() {
       lineNumber: 42,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV17("div", { className: "z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex  bg-background", children: /* @__PURE__ */ jsxDEV17(ChatLayout, { defaultLayout, navCollapsedSize: 8 }, void 0, !1, {
+    /* @__PURE__ */ jsxDEV17("div", { className: "z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex chat-wrapper", children: /* @__PURE__ */ jsxDEV17(ChatLayout, { defaultLayout, navCollapsedSize: 8 }, void 0, !1, {
       fileName: "app/routes/_index.jsx",
       lineNumber: 61,
       columnNumber: 9
@@ -1716,7 +1758,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-G4TUMSUK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-G2LC4UEV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "7c8a462b", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717988435602 }, url: "/build/manifest-7C8A462B.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-WDOI3AT4.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-TSTCK2ZG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "c21e4c01", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717990921430 }, url: "/build/manifest-C21E4C01.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

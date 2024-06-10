@@ -31,7 +31,7 @@ const MessageContent = ({ content }) => {
 const MessageLoading = ({ isLoadingMessage }) => {
   return isLoadingMessage ? (
     <div className="bg-accent p-4 rounded-md max-w-xs  whitespace-pre-wrap loading-wrap">
-      <div class="loading loadingAnimation">
+      <div className="loading loadingAnimation">
         <span>L</span>
         <span>O</span>
         <span>A</span>
@@ -109,6 +109,7 @@ export default function ChatList({
               messages={messages}
               message={message}
               index={index}
+              key={index}
               className={cn(
                 "flex flex-col gap-2 p-4 whitespace-pre-wrap",
                 isRobotMessage(message) ? "items-end" : "items-start"
