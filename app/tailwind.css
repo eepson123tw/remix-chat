@@ -36,3 +36,71 @@ body {
     transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
   }
 }
+.loading-wrap {
+  margin-left: auto;
+  width: 150px;
+  margin-right: 10px;
+}
+
+.loading {
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 0.25rem;
+  margin-top: -15px;
+  span {
+    display: inline-block;
+    margin: 0 -0.05em;
+  }
+}
+
+.loadingAnimation span {
+  animation: loadingAnimation 0.7s infinite;
+}
+
+.loadingAnimation span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loadingAnimation span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loadingAnimation span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.loadingAnimation span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.loadingAnimation span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.loadingAnimation span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loadingAnimation {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}

@@ -45,7 +45,7 @@ import {
 import { json } from "@remix-run/node";
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-ODE7URSA.css";
+var tailwind_default = "/build/_assets/tailwind-UFJYNATY.css";
 
 // app/assets/styles/index.css
 var styles_default = "/build/_assets/index-VIG3O62D.css";
@@ -748,7 +748,8 @@ function ChatTopbar({ selectedUser }) {
 }
 
 // app/components/chat/chat-list.jsx
-import { useRef as useRef2, useEffect } from "react";
+import { useRef as useRef2, useEffect, useCallback } from "react";
+import { AnimatePresence as AnimatePresence2, motion as motion2 } from "framer-motion";
 
 // app/components/chat/chat-bottombar.jsx
 import {
@@ -1217,7 +1218,6 @@ function ChatBottombar({ sendMessage, isMobile }) {
 }
 
 // app/components/chat/chat-list.jsx
-import { AnimatePresence as AnimatePresence2, motion as motion2 } from "framer-motion";
 import { jsxDEV as jsxDEV14 } from "react/jsx-dev-runtime";
 var MessageContent = ({ content }) => {
   let keywords = ["\u8DF3\u821E", "\u821E\u8E48", "\u8D77\u821E"], regex = new RegExp(`(${keywords.join("|")})`, "gi"), parts = content.split(regex);
@@ -1226,22 +1226,103 @@ var MessageContent = ({ content }) => {
       (keyword) => keyword.toLowerCase() === part.toLowerCase()
     ) ? /* @__PURE__ */ jsxDEV14("strong", { className: "text-gradient", children: part }, index, !1, {
       fileName: "app/components/chat/chat-list.jsx",
-      lineNumber: 18,
+      lineNumber: 20,
       columnNumber: 11
     }, this) : part
   ) }, void 0, !1, {
     fileName: "app/components/chat/chat-list.jsx",
-    lineNumber: 13,
+    lineNumber: 15,
     columnNumber: 5
   }, this);
-};
+}, MessageLoading = ({ isLoadingMessage }) => isLoadingMessage ? /* @__PURE__ */ jsxDEV14("div", { className: "bg-accent p-4 rounded-md max-w-xs  whitespace-pre-wrap loading-wrap", children: /* @__PURE__ */ jsxDEV14("div", { class: "loading loadingAnimation", children: [
+  /* @__PURE__ */ jsxDEV14("span", { children: "L" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 35,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV14("span", { children: "O" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 36,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV14("span", { children: "A" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 37,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV14("span", { children: "D" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 38,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV14("span", { children: "I" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 39,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV14("span", { children: "N" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 40,
+    columnNumber: 9
+  }, this),
+  /* @__PURE__ */ jsxDEV14("span", { children: "G" }, void 0, !1, {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 41,
+    columnNumber: 9
+  }, this)
+] }, void 0, !0, {
+  fileName: "app/components/chat/chat-list.jsx",
+  lineNumber: 34,
+  columnNumber: 7
+}, this) }, void 0, !1, {
+  fileName: "app/components/chat/chat-list.jsx",
+  lineNumber: 33,
+  columnNumber: 5
+}, this) : null, MotionWrapper = ({
+  children,
+  index = 0,
+  className = "",
+  messages = [],
+  message = ""
+}) => /* @__PURE__ */ jsxDEV14(
+  motion2.div,
+  {
+    layout: !0,
+    initial: { opacity: 0, scale: 1, y: 50, x: 0 },
+    animate: { opacity: 1, scale: 1, y: 0, x: 0 },
+    exit: { opacity: 0, scale: 1, y: 1, x: 0 },
+    transition: {
+      opacity: { duration: 0.1 },
+      layout: {
+        type: "spring",
+        bounce: 0.3,
+        duration: messages.indexOf(message) * 0.05 + 0.2
+      }
+    },
+    style: {
+      originX: 0.5,
+      originY: 0.5
+    },
+    className,
+    children
+  },
+  index,
+  !1,
+  {
+    fileName: "app/components/chat/chat-list.jsx",
+    lineNumber: 55,
+    columnNumber: 5
+  },
+  this
+);
 function ChatList({
   messages,
   selectedUser,
   sendMessage,
-  isMobile
+  isMobile,
+  isLoadingMessage
 }) {
-  let messagesContainerRef = useRef2(null);
+  let messagesContainerRef = useRef2(null), isRobotMessage = useCallback((message) => message.name !== selectedUser.name, []);
   return useEffect(() => {
     messagesContainerRef.current && (messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight);
   }, [messages]), /* @__PURE__ */ jsxDEV14("div", { className: "w-full overflow-y-auto overflow-x-hidden h-full flex flex-col", children: [
@@ -1250,94 +1331,101 @@ function ChatList({
       {
         ref: messagesContainerRef,
         className: "w-full overflow-y-auto overflow-x-hidden h-full flex flex-col",
-        children: /* @__PURE__ */ jsxDEV14(AnimatePresence2, { children: messages?.map((message, index) => /* @__PURE__ */ jsxDEV14(
-          motion2.div,
-          {
-            layout: !0,
-            initial: { opacity: 0, scale: 1, y: 50, x: 0 },
-            animate: { opacity: 1, scale: 1, y: 0, x: 0 },
-            exit: { opacity: 0, scale: 1, y: 1, x: 0 },
-            transition: {
-              opacity: { duration: 0.1 },
-              layout: {
-                type: "spring",
-                bounce: 0.3,
-                duration: messages.indexOf(message) * 0.05 + 0.2
-              }
-            },
-            style: {
-              originX: 0.5,
-              originY: 0.5
-            },
-            className: cn(
-              "flex flex-col gap-2 p-4 whitespace-pre-wrap",
-              message.name !== selectedUser.name ? "items-end" : "items-start"
-            ),
-            children: /* @__PURE__ */ jsxDEV14("div", { className: "flex gap-3 items-center", children: [
-              message.name === selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
-                AvatarImage,
-                {
-                  src: message.avatar,
-                  alt: message.name,
-                  width: 6,
-                  height: 6
-                },
-                void 0,
-                !1,
-                {
+        children: /* @__PURE__ */ jsxDEV14(AnimatePresence2, { children: [
+          messages?.map((message, index) => /* @__PURE__ */ jsxDEV14(
+            MotionWrapper,
+            {
+              messages,
+              message,
+              index,
+              className: cn(
+                "flex flex-col gap-2 p-4 whitespace-pre-wrap",
+                isRobotMessage(message) ? "items-end" : "items-start"
+              ),
+              children: /* @__PURE__ */ jsxDEV14("div", { className: "flex gap-3 items-center", children: [
+                message.name === selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
+                  AvatarImage,
+                  {
+                    src: message.avatar,
+                    alt: message.name,
+                    width: 6,
+                    height: 6
+                  },
+                  void 0,
+                  !1,
+                  {
+                    fileName: "app/components/chat/chat-list.jsx",
+                    lineNumber: 120,
+                    columnNumber: 21
+                  },
+                  this
+                ) }, void 0, !1, {
                   fileName: "app/components/chat/chat-list.jsx",
-                  lineNumber: 78,
-                  columnNumber: 21
-                },
-                this
-              ) }, void 0, !1, {
-                fileName: "app/components/chat/chat-list.jsx",
-                lineNumber: 77,
-                columnNumber: 19
-              }, this),
-              /* @__PURE__ */ jsxDEV14(MessageContent, { content: message.message }, void 0, !1, {
-                fileName: "app/components/chat/chat-list.jsx",
-                lineNumber: 86,
-                columnNumber: 17
-              }, this),
-              message.name !== selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
-                AvatarImage,
-                {
-                  src: message.avatar,
-                  alt: message.name,
-                  width: 6,
-                  height: 6
-                },
-                void 0,
-                !1,
-                {
+                  lineNumber: 119,
+                  columnNumber: 19
+                }, this),
+                /* @__PURE__ */ jsxDEV14(MessageContent, { content: message.message }, void 0, !1, {
                   fileName: "app/components/chat/chat-list.jsx",
-                  lineNumber: 89,
-                  columnNumber: 21
-                },
-                this
-              ) }, void 0, !1, {
+                  lineNumber: 128,
+                  columnNumber: 17
+                }, this),
+                message.name !== selectedUser.name && /* @__PURE__ */ jsxDEV14(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV14(
+                  AvatarImage,
+                  {
+                    src: message.avatar,
+                    alt: message.name,
+                    width: 6,
+                    height: 6
+                  },
+                  void 0,
+                  !1,
+                  {
+                    fileName: "app/components/chat/chat-list.jsx",
+                    lineNumber: 132,
+                    columnNumber: 21
+                  },
+                  this
+                ) }, void 0, !1, {
+                  fileName: "app/components/chat/chat-list.jsx",
+                  lineNumber: 131,
+                  columnNumber: 19
+                }, this)
+              ] }, void 0, !0, {
                 fileName: "app/components/chat/chat-list.jsx",
-                lineNumber: 88,
-                columnNumber: 19
+                lineNumber: 117,
+                columnNumber: 15
               }, this)
-            ] }, void 0, !0, {
+            },
+            void 0,
+            !1,
+            {
               fileName: "app/components/chat/chat-list.jsx",
-              lineNumber: 75,
-              columnNumber: 15
-            }, this)
-          },
-          index,
-          !1,
-          {
+              lineNumber: 108,
+              columnNumber: 13
+            },
+            this
+          )),
+          /* @__PURE__ */ jsxDEV14(MotionWrapper, { children: /* @__PURE__ */ jsxDEV14(
+            MessageLoading,
+            {
+              isLoadingMessage
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/components/chat/chat-list.jsx",
+              lineNumber: 144,
+              columnNumber: 13
+            },
+            this
+          ) }, void 0, !1, {
             fileName: "app/components/chat/chat-list.jsx",
-            lineNumber: 52,
-            columnNumber: 13
-          },
-          this
-        )) }, void 0, !1, {
+            lineNumber: 143,
+            columnNumber: 11
+          }, this)
+        ] }, void 0, !0, {
           fileName: "app/components/chat/chat-list.jsx",
-          lineNumber: 50,
+          lineNumber: 106,
           columnNumber: 9
         }, this)
       },
@@ -1345,19 +1433,19 @@ function ChatList({
       !1,
       {
         fileName: "app/components/chat/chat-list.jsx",
-        lineNumber: 46,
+        lineNumber: 102,
         columnNumber: 7
       },
       this
     ),
     /* @__PURE__ */ jsxDEV14(ChatBottombar, { sendMessage, isMobile }, void 0, !1, {
       fileName: "app/components/chat/chat-list.jsx",
-      lineNumber: 102,
+      lineNumber: 150,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat-list.jsx",
-    lineNumber: 45,
+    lineNumber: 101,
     columnNumber: 5
   }, this);
 }
@@ -1366,7 +1454,7 @@ function ChatList({
 import { jsxDEV as jsxDEV15 } from "react/jsx-dev-runtime";
 var socketURL = process.env;
 function Chat({ selectedUser, isMobile }) {
-  let [userName, setUserName] = useState2("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"), [assistantName, setAssistantName] = useState2(""), [messages, setMessages] = useState2([]), [message, setMessage] = useState2("");
+  let [userName, setUserName] = useState2("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"), [assistantName, setAssistantName] = useState2(""), [messages, setMessages] = useState2([]), [message, setMessage] = useState2(""), [isLoadingMessage, setIsLoadingMessage] = useState2(!1);
   return useEffect2(() => {
     let socket = io(socketURL);
     socket.on("connect", () => {
@@ -1376,7 +1464,7 @@ function Chat({ selectedUser, isMobile }) {
     }), socket.on("$assistantName", (name) => {
       setAssistantName(name);
     }), socket.on("message", (data) => {
-      console.log(data), data.includes("\u7BA1\u5BB6") && setMessages((prevMessages) => [
+      setIsLoadingMessage(!1), data.includes("\u7BA1\u5BB6") && setMessages((prevMessages) => [
         ...prevMessages,
         {
           id: 1,
@@ -1391,7 +1479,7 @@ function Chat({ selectedUser, isMobile }) {
   }, []), /* @__PURE__ */ jsxDEV15("div", { className: "flex flex-col justify-between w-full h-full", children: [
     /* @__PURE__ */ jsxDEV15(ChatTopbar, { selectedUser }, void 0, !1, {
       fileName: "app/components/chat/chat.jsx",
-      lineNumber: 65,
+      lineNumber: 67,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV15(
@@ -1408,22 +1496,23 @@ function Chat({ selectedUser, isMobile }) {
               name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0",
               message: newMessage.message
             }
-          ]);
+          ]), setIsLoadingMessage(!0);
         },
-        isMobile
+        isMobile,
+        isLoadingMessage
       },
       void 0,
       !1,
       {
         fileName: "app/components/chat/chat.jsx",
-        lineNumber: 67,
+        lineNumber: 69,
         columnNumber: 7
       },
       this
     )
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat.jsx",
-    lineNumber: 64,
+    lineNumber: 66,
     columnNumber: 5
   }, this);
 }
@@ -1627,7 +1716,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-HSIU6XEI.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-4R7VLIHZ.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "24643b0a", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717953700632 }, url: "/build/manifest-24643B0A.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-G4TUMSUK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-G2LC4UEV.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "7c8a462b", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717988435602 }, url: "/build/manifest-7C8A462B.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

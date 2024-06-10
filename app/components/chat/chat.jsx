@@ -11,6 +11,7 @@ export default function Chat({ selectedUser, isMobile }) {
   const [assistantName, setAssistantName] = useState("");
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
+  const [isLoadingMessage, setIsLoadingMessage] = useState(false);
 
   useEffect(() => {
     const socket = io(socketURL);
@@ -28,7 +29,7 @@ export default function Chat({ selectedUser, isMobile }) {
     });
 
     socket.on("message", (data) => {
-      console.log(data);
+      setIsLoadingMessage(false);
       data.includes("管家") &&
         setMessages((prevMessages) => [
           ...prevMessages,
@@ -59,6 +60,7 @@ export default function Chat({ selectedUser, isMobile }) {
         message: newMessage.message,
       },
     ]);
+    setIsLoadingMessage(true);
   };
   return (
     <div className="flex flex-col justify-between w-full h-full">
@@ -69,6 +71,7 @@ export default function Chat({ selectedUser, isMobile }) {
         selectedUser={selectedUser}
         sendMessage={sendMessage}
         isMobile={isMobile}
+        isLoadingMessage={isLoadingMessage}
       />
     </div>
   );
