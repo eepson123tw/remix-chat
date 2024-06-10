@@ -50,7 +50,7 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
           </div>
         </div>
       )}
-      <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
+      <nav className="grid gap-1 px-2  group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
         {links.map((link, index) =>
           isCollapsed ? (
             <TooltipProvider key={index}>
@@ -93,7 +93,7 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
                 buttonVariants({ variant: link.variant, size: "xl" }),
                 link.variant === "grey" &&
                   "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink",
-                "justify-start gap-4"
+                "justify-start gap-4 p-2"
               )}
             >
               <Avatar className="flex justify-center items-center">
@@ -107,12 +107,12 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
               </Avatar>
               <div className="flex flex-col max-w-28">
                 <span>{link.name}</span>
-                {link.messages.length > 0 && (
+                {/* {link.messages.length > 0 && (
                   <span className="text-zinc-300 text-xs truncate ">
                     {link.messages[link.messages.length - 1].name.split(" ")[0]}
                     : {link.messages[link.messages.length - 1].message}
                   </span>
-                )}
+                )} */}
               </div>
             </Link>
           )

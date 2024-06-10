@@ -1,9 +1,13 @@
 body {
   height: 100vh;
-  background: linear-gradient(90deg, #e52e71, #ff8a00);
+  background: linear-gradient(270deg, #e52e71, rgb(255, 138, 0));
 }
 .chat-wrapper {
-  background-color: rgba(228, 246, 246, 0.85);
+  background: linear-gradient(
+    -90deg,
+    rgb(229, 46, 113, 0.75),
+    rgb(255, 138, 0, 0.75)
+  );
 }
 .slider-thumb::before {
   position: absolute;

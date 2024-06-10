@@ -45,7 +45,7 @@ import {
 import { json } from "@remix-run/node";
 
 // app/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-GQDHACDD.css";
+var tailwind_default = "/build/_assets/tailwind-562VMN3Y.css";
 
 // app/assets/styles/index.css
 var styles_default = "/build/_assets/index-VIG3O62D.css";
@@ -444,7 +444,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
           lineNumber: 24,
           columnNumber: 9
         }, this),
-        /* @__PURE__ */ jsxDEV7("nav", { className: "grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2", children: links2.map(
+        /* @__PURE__ */ jsxDEV7("nav", { className: "grid gap-1 px-2  group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2", children: links2.map(
           (link, index) => isCollapsed ? /* @__PURE__ */ jsxDEV7(TooltipProvider, { children: /* @__PURE__ */ jsxDEV7(Tooltip, { delayDuration: 0, children: [
             /* @__PURE__ */ jsxDEV7(TooltipTrigger, { asChild: !0, children: /* @__PURE__ */ jsxDEV7(
               Link,
@@ -529,7 +529,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               className: cn(
                 buttonVariants({ variant: link.variant, size: "xl" }),
                 link.variant === "grey" && "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink",
-                "justify-start gap-4"
+                "justify-start gap-4 p-2"
               ),
               children: [
                 /* @__PURE__ */ jsxDEV7(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV7(
@@ -554,22 +554,11 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                   lineNumber: 99,
                   columnNumber: 15
                 }, this),
-                /* @__PURE__ */ jsxDEV7("div", { className: "flex flex-col max-w-28", children: [
-                  /* @__PURE__ */ jsxDEV7("span", { children: link.name }, void 0, !1, {
-                    fileName: "app/components/sidebar.jsx",
-                    lineNumber: 109,
-                    columnNumber: 17
-                  }, this),
-                  link.messages.length > 0 && /* @__PURE__ */ jsxDEV7("span", { className: "text-zinc-300 text-xs truncate ", children: [
-                    link.messages[link.messages.length - 1].name.split(" ")[0],
-                    ": ",
-                    link.messages[link.messages.length - 1].message
-                  ] }, void 0, !0, {
-                    fileName: "app/components/sidebar.jsx",
-                    lineNumber: 111,
-                    columnNumber: 19
-                  }, this)
-                ] }, void 0, !0, {
+                /* @__PURE__ */ jsxDEV7("div", { className: "flex flex-col max-w-28", children: /* @__PURE__ */ jsxDEV7("span", { children: link.name }, void 0, !1, {
+                  fileName: "app/components/sidebar.jsx",
+                  lineNumber: 109,
+                  columnNumber: 17
+                }, this) }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
                   lineNumber: 108,
                   columnNumber: 15
@@ -890,17 +879,17 @@ var userData = [
   {
     id: 2,
     avatar: "https://picsum.photos/id/61/200/300",
-    name: "John Doe"
+    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0-1"
   },
   {
     id: 3,
     avatar: "https://picsum.photos/id/60/200/300",
-    name: "Elizabeth Smith"
+    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0-2"
   },
   {
     id: 4,
     avatar: "https://picsum.photos/id/59/200/300",
-    name: "John Smith"
+    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0-3"
   }
 ], loggedInUserData = {
   id: 5,
@@ -1758,7 +1747,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-WDOI3AT4.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-TSTCK2ZG.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "c21e4c01", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717990921430 }, url: "/build/manifest-C21E4C01.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-PQ66HT6D.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-I3VFDCL5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "ed52026c", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717991586316 }, url: "/build/manifest-ED52026C.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
