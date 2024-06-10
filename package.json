@@ -32,6 +32,7 @@
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "emoji-mart": "^5.6.0",
+    "express-session": "^1.18.0",
     "framer-motion": "^10.18.0",
     "isbot": "^4.4.0",
     "lucide-react": "^0.390.0",
@@ -40,7 +41,8 @@
     "react-resizable-panels": "^1.0.10",
     "socket.io-client": "^4.7.5",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",

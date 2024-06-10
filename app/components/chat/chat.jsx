@@ -1,5 +1,7 @@
 import io from "socket.io-client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
+
+import { v4 } from "uuid";
 
 import ChatTopbar from "./chat-topbar";
 import ChatList from "./chat-list";
@@ -13,8 +15,27 @@ export default function Chat({ selectedUser, isMobile }) {
   const [message, setMessage] = useState("");
   const [isLoadingMessage, setIsLoadingMessage] = useState(false);
 
+  // 获取或生成用户ID
+  const userId = useMemo(() => {
+    if (typeof window !== "undefined") {
+      let storedUserId = sessionStorage.getItem("userId");
+      if (!storedUserId) {
+        storedUserId = v4(); // 生成新的 UUID
+        sessionStorage.setItem("userId", storedUserId);
+      }
+      return storedUserId;
+    }
+    return ""; // 如果在非浏览器环境中，返回空字符串
+  }, []);
+
   useEffect(() => {
-    const socket = io(socketURL);
+    // if (!userId) {
+    //   sessionStorage.setItem("userId", userId);
+    // }
+
+    const socket = io(socketURL, {
+      query: { userId },
+    });
 
     socket.on("connect", () => {
       console.warn("Connected to the server");
@@ -49,7 +70,9 @@ export default function Chat({ selectedUser, isMobile }) {
   }, []);
 
   const sendMessage = (newMessage) => {
-    const socket = io(socketURL);
+    const socket = io(socketURL, {
+      query: { userId },
+    });
     socket.emit("message", `${userName}: ${newMessage.message}`);
 
     setMessages((prevMessages) => [
