@@ -48,7 +48,7 @@ export default function Index() {
           Good Night Ojosama
         </Link>
         <Link
-          to=""
+          to="https://github.com/eepson123tw/remix-chat"
           className={cn(
             buttonVariants({ variant: "ghost", size: "icon" }),
             "h-10 w-10"

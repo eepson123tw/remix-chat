@@ -967,8 +967,8 @@ function ChatBottombar({ sendMessage, isMobile }) {
       sendMessage(newMessage), setMessage(""), inputRef.current && inputRef.current.focus();
     }
   }, handleKeyPress = (event) => {
-    event.key === "Enter" && !isComposing && (event.shiftKey ? (event.preventDefault(), setMessage((prev) => prev + `
-`)) : (event.preventDefault(), handleSend()));
+    event.key === "Enter" && !event.shiftKey && !isComposing && (event.preventDefault(), handleSend()), event.key === "Enter" && event.shiftKey && (event.preventDefault(), setMessage((prev) => prev + `
+`));
   };
   return /* @__PURE__ */ jsxDEV13("div", { className: "p-2 flex justify-between w-full items-center gap-2", children: [
     /* @__PURE__ */ jsxDEV13("div", { className: "flex", children: [
@@ -1739,7 +1739,7 @@ function Index() {
       /* @__PURE__ */ jsxDEV18(
         Link4,
         {
-          to: "",
+          to: "https://github.com/eepson123tw/remix-chat",
           className: cn2(
             buttonVariants({ variant: "ghost", size: "icon" }),
             "h-10 w-10"
@@ -1786,7 +1786,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-R5GYOMP5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "faa41a15", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717994814720 }, url: "/build/manifest-FAA41A15.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-GLJ2TI4J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "7f832930", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717996390155 }, url: "/build/manifest-7F832930.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -71,7 +71,7 @@ export default function ChatBottombar({ sendMessage, isMobile }) {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (event.key === "Enter" && !event.shiftKey && !isComposing) {
       event.preventDefault();
       handleSend();
     }
