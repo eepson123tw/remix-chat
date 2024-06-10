@@ -110,3 +110,11 @@ body {
     transform: translateY(15px);
   }
 }
+
+audio {
+  height: 20px;
+  opacity: 0.2;
+}
+audio::-webkit-media-controls-panel {
+  background: linear-gradient(270deg, #e52e71, rgb(255, 138, 0));
+}

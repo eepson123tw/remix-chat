@@ -10,6 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 import { userPrefs } from "~/cookies.server";
 import ChatLayout from "../components/chat/chat-layout";
+import ChatMusic from "../components/chat/chat-music";
 
 function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -56,10 +57,10 @@ export default function Index() {
           <GitHubLogoIcon className="w-7 h-7 text-muted-foreground" />
         </Link>
       </div>
-
       <div className="z-10 border rounded-lg max-w-5xl w-full h-full text-sm lg:flex chat-wrapper">
         <ChatLayout defaultLayout={defaultLayout} navCollapsedSize={8} />
       </div>
+      <ChatMusic />
     </main>
   );
 }
