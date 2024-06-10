@@ -27,10 +27,19 @@ export const BottombarIcons = [{ icon: FileImage }, { icon: Paperclip }];
 
 export default function ChatBottombar({ sendMessage, isMobile }) {
   const [message, setMessage] = useState("");
+  const [isComposing, setIsComposing] = useState(false);
   const inputRef = useRef(null);
 
   const handleInputChange = (event) => {
     setMessage(event.target.value);
+  };
+
+  const handleComposition = (event) => {
+    if (event.type === "compositionstart") {
+      setIsComposing(true);
+    } else if (event.type === "compositionend") {
+      setIsComposing(false);
+    }
   };
 
   const handleThumbsUp = () => {
@@ -171,6 +180,8 @@ export default function ChatBottombar({ sendMessage, isMobile }) {
             ref={inputRef}
             onKeyDown={handleKeyPress}
             onChange={handleInputChange}
+            onCompositionStart={handleComposition}
+            onCompositionEnd={handleComposition}
             name="message"
             placeholder="Aa"
             className=" w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
