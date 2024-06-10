@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "@remix-run/react";
-
 import { MoreHorizontal, SquarePen } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -14,7 +13,7 @@ import {
 
 import { Avatar, AvatarImage } from "./ui/avatar";
 
-export function Sidebar({ links, isCollapsed, isMobile }) {
+export function Sidebar({ links, isCollapsed, isMobile, onSelect }) {
   return (
     <div
       data-collapsed={isCollapsed}
@@ -64,6 +63,7 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
                       link.variant === "grey" &&
                         "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                     )}
+                    onClick={() => onSelect(link)}
                   >
                     <Avatar className="flex justify-center items-center">
                       <AvatarImage
@@ -95,6 +95,7 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
                   "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink",
                 "justify-start gap-4 p-2"
               )}
+              onClick={() => onSelect(link)}
             >
               <Avatar className="flex justify-center items-center">
                 <AvatarImage
@@ -107,12 +108,6 @@ export function Sidebar({ links, isCollapsed, isMobile }) {
               </Avatar>
               <div className="flex flex-col max-w-28">
                 <span>{link.name}</span>
-                {/* {link.messages.length > 0 && (
-                  <span className="text-zinc-300 text-xs truncate ">
-                    {link.messages[link.messages.length - 1].name.split(" ")[0]}
-                    : {link.messages[link.messages.length - 1].message}
-                  </span>
-                )} */}
               </div>
             </Link>
           )

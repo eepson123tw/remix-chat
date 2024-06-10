@@ -359,7 +359,7 @@ AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 
 // app/components/sidebar.jsx
 import { jsxDEV as jsxDEV7 } from "react/jsx-dev-runtime";
-function Sidebar({ links: links2, isCollapsed, isMobile }) {
+function Sidebar({ links: links2, isCollapsed, isMobile, onSelect }) {
   return /* @__PURE__ */ jsxDEV7(
     "div",
     {
@@ -370,7 +370,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
           /* @__PURE__ */ jsxDEV7("div", { className: "flex gap-2 items-center text-2xl", children: [
             /* @__PURE__ */ jsxDEV7("p", { className: "font-medium", children: "Chats" }, void 0, !1, {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 26,
+              lineNumber: 25,
               columnNumber: 13
             }, this),
             /* @__PURE__ */ jsxDEV7("span", { className: "text-zinc-300", children: [
@@ -379,12 +379,12 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               ")"
             ] }, void 0, !0, {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 27,
+              lineNumber: 26,
               columnNumber: 13
             }, this)
           ] }, void 0, !0, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 25,
+            lineNumber: 24,
             columnNumber: 11
           }, this),
           /* @__PURE__ */ jsxDEV7("div", { children: [
@@ -398,7 +398,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                 ),
                 children: /* @__PURE__ */ jsxDEV7(MoreHorizontal, { size: 20 }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 38,
+                  lineNumber: 37,
                   columnNumber: 15
                 }, this)
               },
@@ -406,7 +406,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !1,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 31,
+                lineNumber: 30,
                 columnNumber: 13
               },
               this
@@ -421,7 +421,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                 ),
                 children: /* @__PURE__ */ jsxDEV7(SquarePen, { size: 20 }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 48,
+                  lineNumber: 47,
                   columnNumber: 15
                 }, this)
               },
@@ -429,19 +429,19 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !1,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 13
               },
               this
             )
           ] }, void 0, !0, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 30,
+            lineNumber: 29,
             columnNumber: 11
           }, this)
         ] }, void 0, !0, {
           fileName: "app/components/sidebar.jsx",
-          lineNumber: 24,
+          lineNumber: 23,
           columnNumber: 9
         }, this),
         /* @__PURE__ */ jsxDEV7("nav", { className: "grid gap-1 px-2  group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2", children: links2.map(
@@ -455,6 +455,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                   "h-11 w-11 md:h-16 md:w-16",
                   link.variant === "grey" && "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                 ),
+                onClick: () => onSelect(link),
                 children: [
                   /* @__PURE__ */ jsxDEV7(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV7(
                     AvatarImage,
@@ -489,13 +490,13 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
               !0,
               {
                 fileName: "app/components/sidebar.jsx",
-                lineNumber: 59,
+                lineNumber: 58,
                 columnNumber: 19
               },
               this
             ) }, void 0, !1, {
               fileName: "app/components/sidebar.jsx",
-              lineNumber: 58,
+              lineNumber: 57,
               columnNumber: 17
             }, this),
             /* @__PURE__ */ jsxDEV7(
@@ -516,11 +517,11 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
             )
           ] }, index, !0, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 57,
+            lineNumber: 56,
             columnNumber: 15
           }, this) }, index, !1, {
             fileName: "app/components/sidebar.jsx",
-            lineNumber: 56,
+            lineNumber: 55,
             columnNumber: 13
           }, this) : /* @__PURE__ */ jsxDEV7(
             Link,
@@ -531,6 +532,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                 link.variant === "grey" && "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink",
                 "justify-start gap-4 p-2"
               ),
+              onClick: () => onSelect(link),
               children: [
                 /* @__PURE__ */ jsxDEV7(Avatar, { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxDEV7(
                   AvatarImage,
@@ -545,22 +547,22 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
                   !1,
                   {
                     fileName: "app/components/sidebar.jsx",
-                    lineNumber: 100,
+                    lineNumber: 101,
                     columnNumber: 17
                   },
                   this
                 ) }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 99,
+                  lineNumber: 100,
                   columnNumber: 15
                 }, this),
                 /* @__PURE__ */ jsxDEV7("div", { className: "flex flex-col max-w-28", children: /* @__PURE__ */ jsxDEV7("span", { children: link.name }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 109,
+                  lineNumber: 110,
                   columnNumber: 17
                 }, this) }, void 0, !1, {
                   fileName: "app/components/sidebar.jsx",
-                  lineNumber: 108,
+                  lineNumber: 109,
                   columnNumber: 15
                 }, this)
               ]
@@ -576,7 +578,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
           )
         ) }, void 0, !1, {
           fileName: "app/components/sidebar.jsx",
-          lineNumber: 53,
+          lineNumber: 52,
           columnNumber: 7
         }, this)
       ]
@@ -585,7 +587,7 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
     !0,
     {
       fileName: "app/components/sidebar.jsx",
-      lineNumber: 19,
+      lineNumber: 18,
       columnNumber: 5
     },
     this
@@ -594,8 +596,11 @@ function Sidebar({ links: links2, isCollapsed, isMobile }) {
 
 // app/components/chat/chat.jsx
 import io from "socket.io-client";
-import { useState as useState2, useEffect as useEffect2, useMemo } from "react";
+import { useRef as useRef3, useState as useState2, useEffect as useEffect2, useMemo } from "react";
 import { v4 } from "uuid";
+
+// app/assets/img/assitant.png
+var assitant_default = "/build/_assets/assitant-QITIEG36.png";
 
 // app/components/chat/chat-topbar.jsx
 import "react";
@@ -857,42 +862,7 @@ var PopoverContent = React7.forwardRef(({ className, align = "center", sideOffse
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 // app/data/index.js
-var userData = [
-  {
-    id: 1,
-    avatar: "https://picsum.photos/id/64/200/300",
-    messages: [
-      {
-        id: 1,
-        avatar: "https://picsum.photos/id/64/200/300",
-        name: "Jane Doe",
-        message: "Hey, Jakob"
-      },
-      {
-        id: 2,
-        avatar: "https://picsum.photos/id/11/200/300",
-        name: "Jakob Hoeg",
-        message: "Hey!"
-      }
-    ],
-    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"
-  },
-  {
-    id: 2,
-    avatar: "https://picsum.photos/id/61/200/300",
-    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0-1"
-  },
-  {
-    id: 3,
-    avatar: "https://picsum.photos/id/60/200/300",
-    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0-2"
-  },
-  {
-    id: 4,
-    avatar: "https://picsum.photos/id/59/200/300",
-    name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0-3"
-  }
-], loggedInUserData = {
+var loggedInUserData = {
   id: 5,
   avatar: "https://picsum.photos/id/11/200/300",
   name: "Jakob Hoeg"
@@ -1490,40 +1460,39 @@ function ChatList({
 import { jsxDEV as jsxDEV15 } from "react/jsx-dev-runtime";
 var socketURL = process.env;
 function Chat({ selectedUser, isMobile }) {
-  let [userName, setUserName] = useState2("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"), [assistantName, setAssistantName] = useState2(""), [messages, setMessages] = useState2([]), [message, setMessage] = useState2(""), [isLoadingMessage, setIsLoadingMessage] = useState2(!1), userId = useMemo(() => {
+  let [userName, setUserName] = useState2("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0"), [assistantName, setAssistantName] = useState2(""), [messages, setMessages] = useState2([]), [message, setMessage] = useState2(""), [isLoadingMessage, setIsLoadingMessage] = useState2(!1), socketRef = useRef3(null), userId = useMemo(() => {
     if (typeof window < "u") {
       let storedUserId = sessionStorage.getItem("userId");
       return storedUserId || (storedUserId = v4(), sessionStorage.setItem("userId", storedUserId)), storedUserId;
     }
     return "";
   }, []);
-  return useEffect2(() => {
-    let socket = io(socketURL, {
-      query: { userId }
-    });
-    socket.on("connect", () => {
-      console.warn("Connected to the server");
-    }), socket.on("$name", (name) => {
-      setUserName("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0");
-    }), socket.on("$assistantName", (name) => {
-      setAssistantName(name);
-    }), socket.on("message", (data) => {
-      data.includes("\u7BA1\u5BB6") && setIsLoadingMessage(!1), data.includes("\u7BA1\u5BB6") && !isLoadingMessage && setMessages((prevMessages) => [
-        ...prevMessages,
-        {
-          id: 1,
-          avatar: "https://picsum.photos/id/20/200/300",
-          name: assistantName,
-          message: data
-        }
-      ]);
-    }), socket.on("error", (data) => {
-      console.error("Socket.IO error: ", data);
-    });
-  }, []), /* @__PURE__ */ jsxDEV15("div", { className: "flex flex-col justify-between w-full h-full", children: [
+  return useEffect2(() => (socketRef.current || (socketRef.current = io(socketURL, {
+    query: { userId: selectedUser.userId }
+  }), socketRef.current.on("connect", () => {
+    console.warn("Connected to the server");
+  }), socketRef.current.on("$name", (name) => {
+    setUserName("\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0");
+  }), socketRef.current.on("$assistantName", (name) => {
+    setAssistantName(name);
+  }), socketRef.current.on("message", (data) => {
+    console.log({ data }), data.includes("\u7BA1\u5BB6") && setIsLoadingMessage(!1), data.includes("\u7BA1\u5BB6") && !isLoadingMessage && setMessages((prevMessages) => [
+      ...prevMessages,
+      {
+        id: 1,
+        avatar: assitant_default,
+        name: assistantName,
+        message: data
+      }
+    ]);
+  }), socketRef.current.on("error", (data) => {
+    console.error("Socket.IO error: ", data);
+  })), () => {
+    socketRef.current && (socketRef.current.disconnect(), socketRef.current = null);
+  }), [selectedUser]), /* @__PURE__ */ jsxDEV15("div", { className: "flex flex-col justify-between w-full h-full", children: [
     /* @__PURE__ */ jsxDEV15(ChatTopBar, { selectedUser }, void 0, !1, {
       fileName: "app/components/chat/chat.jsx",
-      lineNumber: 91,
+      lineNumber: 97,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV15(
@@ -1532,17 +1501,15 @@ function Chat({ selectedUser, isMobile }) {
         messages,
         selectedUser,
         sendMessage: (newMessage) => {
-          io(socketURL, {
-            query: { userId }
-          }).emit("message", `${userName}: ${newMessage.message}`), setMessages((prevMessages) => [
+          socketRef.current && (socketRef.current.emit("message", `${userName}: ${newMessage.message}`), setMessages((prevMessages) => [
             ...prevMessages,
             {
-              id: 1,
-              avatar: "https://picsum.photos/id/64/200/300",
-              name: "\u4E0D\u7761\u89BA\u7684\u5927\u5C0F\u59D0",
+              id: selectedUser.userId,
+              avatar: selectedUser.avatar,
+              name: selectedUser.name,
               message: newMessage.message
             }
-          ]), setIsLoadingMessage(!0);
+          ]), setIsLoadingMessage(!0));
         },
         isMobile,
         isLoadingMessage
@@ -1551,31 +1518,34 @@ function Chat({ selectedUser, isMobile }) {
       !1,
       {
         fileName: "app/components/chat/chat.jsx",
-        lineNumber: 92,
+        lineNumber: 98,
         columnNumber: 7
       },
       this
     )
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat.jsx",
-    lineNumber: 90,
+    lineNumber: 96,
     columnNumber: 5
   }, this);
 }
 
 // app/components/chat/chat-layout.jsx
 import { jsxDEV as jsxDEV16 } from "react/jsx-dev-runtime";
+var socketURL2 = process.env, fetchActiveChatRooms = async () => await (await fetch(socketURL2 + "/messages/getActiveChatRooms")).json();
 function ChatLayout({
   defaultLayout = [320, 480],
   defaultCollapsed = !1,
   navCollapsedSize
 }) {
-  let [isCollapsed, setIsCollapsed] = useState3(defaultCollapsed), [selectedUser, setSelectedUser] = useState3(userData[0]), [isMobile, setIsMobile] = useState3(!1);
+  let [isCollapsed, setIsCollapsed] = useState3(defaultCollapsed), [selectedUser, setSelectedUser] = useState3(null), [isMobile, setIsMobile] = useState3(!1), [activeChatRooms, setActiveChatRooms] = useState3([]);
   return useEffect3(() => {
     let checkScreenWidth = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    return checkScreenWidth(), window.addEventListener("resize", checkScreenWidth), () => {
+    return checkScreenWidth(), window.addEventListener("resize", checkScreenWidth), fetchActiveChatRooms().then((rooms) => {
+      setActiveChatRooms(rooms), rooms.length > 0 && setSelectedUser(rooms[0]);
+    }), () => {
       window.removeEventListener("resize", checkScreenWidth);
     };
   }, []), /* @__PURE__ */ jsxDEV16(
@@ -1614,19 +1584,20 @@ function ChatLayout({
               Sidebar,
               {
                 isCollapsed: isCollapsed || isMobile,
-                links: userData.map((user) => ({
-                  name: user.name,
-                  messages: user.messages ?? [],
-                  avatar: user.avatar,
-                  variant: selectedUser.name === user.name ? "grey" : "ghost"
+                links: activeChatRooms.map((room) => ({
+                  id: room.userId,
+                  name: room.name,
+                  avatar: room.avatar,
+                  variant: selectedUser && selectedUser.userId === room.userId ? "grey" : "ghost"
                 })),
-                isMobile
+                isMobile,
+                onSelect: (room) => setSelectedUser(room)
               },
               void 0,
               !1,
               {
                 fileName: "app/components/chat/chat-layout.jsx",
-                lineNumber: 75,
+                lineNumber: 91,
                 columnNumber: 9
               },
               this
@@ -1636,34 +1607,33 @@ function ChatLayout({
           !1,
           {
             fileName: "app/components/chat/chat-layout.jsx",
-            lineNumber: 52,
+            lineNumber: 68,
             columnNumber: 7
           },
           this
         ),
         /* @__PURE__ */ jsxDEV16(ResizableHandle, { withHandle: !0 }, void 0, !1, {
           fileName: "app/components/chat/chat-layout.jsx",
-          lineNumber: 86,
+          lineNumber: 106,
           columnNumber: 7
         }, this),
-        /* @__PURE__ */ jsxDEV16(ResizablePanel, { defaultSize: defaultLayout[1], minSize: 30, children: /* @__PURE__ */ jsxDEV16(
+        /* @__PURE__ */ jsxDEV16(ResizablePanel, { defaultSize: defaultLayout[1], minSize: 30, children: selectedUser && /* @__PURE__ */ jsxDEV16(
           Chat,
           {
-            messages: selectedUser.messages,
             selectedUser,
             isMobile
           },
-          void 0,
+          selectedUser.userId,
           !1,
           {
             fileName: "app/components/chat/chat-layout.jsx",
-            lineNumber: 88,
-            columnNumber: 9
+            lineNumber: 109,
+            columnNumber: 11
           },
           this
         ) }, void 0, !1, {
           fileName: "app/components/chat/chat-layout.jsx",
-          lineNumber: 87,
+          lineNumber: 107,
           columnNumber: 7
         }, this)
       ]
@@ -1672,7 +1642,7 @@ function ChatLayout({
     !0,
     {
       fileName: "app/components/chat/chat-layout.jsx",
-      lineNumber: 43,
+      lineNumber: 59,
       columnNumber: 5
     },
     this
@@ -1797,7 +1767,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-S5IZEI27.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "674a2280", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1718012935808 }, url: "/build/manifest-674A2280.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-IGXAAP5D.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "8e927ebb", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1718034318298 }, url: "/build/manifest-8E927EBB.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

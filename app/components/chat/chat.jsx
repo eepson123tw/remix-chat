@@ -1,8 +1,7 @@
 import io from "socket.io-client";
 import React, { useRef, useState, useEffect, useMemo } from "react";
-
 import { v4 } from "uuid";
-
+import assistant from "../../assets/img/assitant.png";
 import ChatTopbar from "./chat-topbar";
 import ChatList from "./chat-list";
 
@@ -15,7 +14,9 @@ export default function Chat({ selectedUser, isMobile }) {
   const [message, setMessage] = useState("");
   const [isLoadingMessage, setIsLoadingMessage] = useState(false);
 
-  // 获取或生成用户ID
+  // 使用 useRef 儲存 socket 連接，確保在組件生命周期內只使用一個連接
+  const socketRef = useRef(null);
+
   const userId = useMemo(() => {
     if (typeof window !== "undefined") {
       let storedUserId = sessionStorage.getItem("userId");
@@ -25,67 +26,72 @@ export default function Chat({ selectedUser, isMobile }) {
       }
       return storedUserId;
     }
-    return ""; // 如果在非浏览器环境中，返回空字符串
+    return ""; // 如果在非瀏覽器環境中，返回空字符串
   }, []);
 
   useEffect(() => {
-    // if (!userId) {
-    //   sessionStorage.setItem("userId", userId);
-    // }
+    if (!socketRef.current) {
+      socketRef.current = io(socketURL, {
+        query: { userId: selectedUser.userId },
+      });
 
-    const socket = io(socketURL, {
-      query: { userId },
-    });
+      socketRef.current.on("connect", () => {
+        console.warn("Connected to the server");
+      });
 
-    socket.on("connect", () => {
-      console.warn("Connected to the server");
-    });
+      socketRef.current.on("$name", (name) => {
+        setUserName("不睡覺的大小姐");
+      });
 
-    socket.on("$name", (name) => {
-      setUserName("不睡覺的大小姐");
-    });
+      socketRef.current.on("$assistantName", (name) => {
+        setAssistantName(name);
+      });
 
-    socket.on("$assistantName", (name) => {
-      setAssistantName(name);
-    });
+      socketRef.current.on("message", (data) => {
+        console.log({ data });
+        data.includes("管家") && setIsLoadingMessage(false);
+        data.includes("管家") &&
+          !isLoadingMessage &&
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            {
+              id: 1,
+              avatar: assistant,
+              name: assistantName,
+              message: data,
+            },
+          ]);
+      });
 
-    socket.on("message", (data) => {
-      data.includes("管家") && setIsLoadingMessage(false);
-      data.includes("管家") &&
-        !isLoadingMessage &&
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          {
-            id: 1,
-            avatar: "https://picsum.photos/id/20/200/300",
-            name: assistantName,
-            message: data,
-          },
-        ]);
-    });
+      socketRef.current.on("error", (data) => {
+        console.error("Socket.IO error: ", data);
+      });
+    }
 
-    socket.on("error", (data) => {
-      console.error("Socket.IO error: ", data);
-    });
-  }, []);
+    return () => {
+      if (socketRef.current) {
+        socketRef.current.disconnect();
+        socketRef.current = null;
+      }
+    };
+  }, [selectedUser]);
 
   const sendMessage = (newMessage) => {
-    const socket = io(socketURL, {
-      query: { userId },
-    });
-    socket.emit("message", `${userName}: ${newMessage.message}`);
-
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      {
-        id: 1,
-        avatar: "https://picsum.photos/id/64/200/300",
-        name: "不睡覺的大小姐",
-        message: newMessage.message,
-      },
-    ]);
-    setIsLoadingMessage(true);
+    if (socketRef.current) {
+      socketRef.current.emit("message", `${userName}: ${newMessage.message}`);
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          id: selectedUser.userId,
+          avatar: selectedUser.avatar,
+          name: selectedUser.name,
+          message: newMessage.message,
+        },
+      ]);
+      setIsLoadingMessage(true);
+    }
   };
+
   return (
     <div className="flex flex-col justify-between w-full h-full">
       <ChatTopbar selectedUser={selectedUser} />

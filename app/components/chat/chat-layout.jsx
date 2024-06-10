@@ -11,7 +11,14 @@ import { cn } from "@/lib/utils";
 
 import { Sidebar } from "../sidebar";
 import Chat from "./chat";
-import { userData } from "../../data";
+
+const socketURL = process.env;
+
+const fetchActiveChatRooms = async () => {
+  const response = await fetch(socketURL + "/messages/getActiveChatRooms");
+  const data = await response.json();
+  return data;
+};
 
 export default function ChatLayout({
   defaultLayout = [320, 480],
@@ -19,8 +26,9 @@ export default function ChatLayout({
   navCollapsedSize,
 }) {
   const [isCollapsed, setIsCollapsed] = useState(defaultCollapsed);
-  const [selectedUser, setSelectedUser] = useState(userData[0]);
+  const [selectedUser, setSelectedUser] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeChatRooms, setActiveChatRooms] = useState([]);
 
   useEffect(() => {
     const checkScreenWidth = () => {
@@ -32,6 +40,14 @@ export default function ChatLayout({
 
     // Event listener for screen width changes
     window.addEventListener("resize", checkScreenWidth);
+
+    // Fetch active chat rooms
+    fetchActiveChatRooms().then((rooms) => {
+      setActiveChatRooms(rooms);
+      if (rooms.length > 0) {
+        setSelectedUser(rooms[0]); // 默认选择第一个聊天室
+      }
+    });
 
     // Cleanup the event listener on component unmount
     return () => {
@@ -74,22 +90,28 @@ export default function ChatLayout({
       >
         <Sidebar
           isCollapsed={isCollapsed || isMobile}
-          links={userData.map((user) => ({
-            name: user.name,
-            messages: user.messages ?? [],
-            avatar: user.avatar,
-            variant: selectedUser.name === user.name ? "grey" : "ghost",
+          links={activeChatRooms.map((room) => ({
+            id: room.userId,
+            name: room.name,
+            avatar: room.avatar,
+            variant:
+              selectedUser && selectedUser.userId === room.userId
+                ? "grey"
+                : "ghost",
           }))}
           isMobile={isMobile}
+          onSelect={(room) => setSelectedUser(room)}
         />
       </ResizablePanel>
       <ResizableHandle withHandle />
       <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
-        <Chat
-          messages={selectedUser.messages}
-          selectedUser={selectedUser}
-          isMobile={isMobile}
-        />
+        {selectedUser && (
+          <Chat
+            key={selectedUser.userId}
+            selectedUser={selectedUser}
+            isMobile={isMobile}
+          />
+        )}
       </ResizablePanel>
     </ResizablePanelGroup>
   );
