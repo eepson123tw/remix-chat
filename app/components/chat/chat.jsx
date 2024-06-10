@@ -29,8 +29,9 @@ export default function Chat({ selectedUser, isMobile }) {
     });
 
     socket.on("message", (data) => {
-      setIsLoadingMessage(false);
+      data.includes("管家") && setIsLoadingMessage(false);
       data.includes("管家") &&
+        !isLoadingMessage &&
         setMessages((prevMessages) => [
           ...prevMessages,
           {

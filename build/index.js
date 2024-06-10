@@ -1499,7 +1499,7 @@ function Chat({ selectedUser, isMobile }) {
     }), socket.on("$assistantName", (name) => {
       setAssistantName(name);
     }), socket.on("message", (data) => {
-      setIsLoadingMessage(!1), data.includes("\u7BA1\u5BB6") && setMessages((prevMessages) => [
+      data.includes("\u7BA1\u5BB6") && setIsLoadingMessage(!1), data.includes("\u7BA1\u5BB6") && !isLoadingMessage && setMessages((prevMessages) => [
         ...prevMessages,
         {
           id: 1,
@@ -1514,7 +1514,7 @@ function Chat({ selectedUser, isMobile }) {
   }, []), /* @__PURE__ */ jsxDEV15("div", { className: "flex flex-col justify-between w-full h-full", children: [
     /* @__PURE__ */ jsxDEV15(ChatTopBar, { selectedUser }, void 0, !1, {
       fileName: "app/components/chat/chat.jsx",
-      lineNumber: 67,
+      lineNumber: 68,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV15(
@@ -1540,14 +1540,14 @@ function Chat({ selectedUser, isMobile }) {
       !1,
       {
         fileName: "app/components/chat/chat.jsx",
-        lineNumber: 68,
+        lineNumber: 69,
         columnNumber: 7
       },
       this
     )
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat.jsx",
-    lineNumber: 66,
+    lineNumber: 67,
     columnNumber: 5
   }, this);
 }
@@ -1786,7 +1786,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-GLJ2TI4J.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "7f832930", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717996390155 }, url: "/build/manifest-7F832930.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-PLBSNXBK.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "51079a31", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717996839945 }, url: "/build/manifest-51079A31.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
