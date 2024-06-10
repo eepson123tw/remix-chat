@@ -965,7 +965,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
       sendMessage(newMessage), setMessage(""), inputRef.current && inputRef.current.focus();
     }
   }, handleKeyPress = (event) => {
-    event.key === "Enter" && !event.shiftKey && (event.preventDefault(), handleSend(), setMessage("")), event.key === "Enter" && event.shiftKey && (event.preventDefault(), setMessage((prev) => prev + `
+    event.key === "Enter" && !event.shiftKey && (event.preventDefault(), handleSend()), event.key === "Enter" && event.shiftKey && (event.preventDefault(), setMessage((prev) => prev + `
 `));
   };
   return /* @__PURE__ */ jsxDEV13("div", { className: "p-2 flex justify-between w-full items-center gap-2", children: [
@@ -982,7 +982,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
             ),
             children: /* @__PURE__ */ jsxDEV13(PlusCircle, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 90,
+              lineNumber: 89,
               columnNumber: 15
             }, this)
           },
@@ -990,13 +990,13 @@ function ChatBottombar({ sendMessage, isMobile }) {
           !1,
           {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 82,
+            lineNumber: 81,
             columnNumber: 13
           },
           this
         ) }, void 0, !1, {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 81,
+          lineNumber: 80,
           columnNumber: 11
         }, this),
         /* @__PURE__ */ jsxDEV13(PopoverContent, { side: "top", className: "w-full p-2", children: message.trim() || isMobile ? /* @__PURE__ */ jsxDEV13("div", { className: "flex gap-2", children: [
@@ -1011,7 +1011,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
               ),
               children: /* @__PURE__ */ jsxDEV13(Mic, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 104,
+                lineNumber: 103,
                 columnNumber: 19
               }, this)
             },
@@ -1019,7 +1019,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
             !1,
             {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 96,
+              lineNumber: 95,
               columnNumber: 17
             },
             this
@@ -1035,7 +1035,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
               ),
               children: /* @__PURE__ */ jsxDEV13(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 116,
+                lineNumber: 115,
                 columnNumber: 21
               }, this)
             },
@@ -1043,14 +1043,14 @@ function ChatBottombar({ sendMessage, isMobile }) {
             !1,
             {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 107,
+              lineNumber: 106,
               columnNumber: 19
             },
             this
           ))
         ] }, void 0, !0, {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 95,
+          lineNumber: 94,
           columnNumber: 15
         }, this) : /* @__PURE__ */ jsxDEV13(
           Link3,
@@ -1063,7 +1063,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
             ),
             children: /* @__PURE__ */ jsxDEV13(Mic, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 129,
+              lineNumber: 128,
               columnNumber: 17
             }, this)
           },
@@ -1071,18 +1071,18 @@ function ChatBottombar({ sendMessage, isMobile }) {
           !1,
           {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 121,
+            lineNumber: 120,
             columnNumber: 15
           },
           this
         ) }, void 0, !1, {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 93,
+          lineNumber: 92,
           columnNumber: 11
         }, this)
       ] }, void 0, !0, {
         fileName: "app/components/chat/chat-bottombar.jsx",
-        lineNumber: 80,
+        lineNumber: 79,
         columnNumber: 9
       }, this),
       !message.trim() && !isMobile && /* @__PURE__ */ jsxDEV13("div", { className: "flex", children: BottombarIcons.map((icon, index) => /* @__PURE__ */ jsxDEV13(
@@ -1096,7 +1096,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
           ),
           children: /* @__PURE__ */ jsxDEV13(icon.icon, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 146,
+            lineNumber: 145,
             columnNumber: 17
           }, this)
         },
@@ -1104,18 +1104,18 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !1,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 137,
+          lineNumber: 136,
           columnNumber: 15
         },
         this
       )) }, void 0, !1, {
         fileName: "app/components/chat/chat-bottombar.jsx",
-        lineNumber: 135,
+        lineNumber: 134,
         columnNumber: 11
       }, this)
     ] }, void 0, !0, {
       fileName: "app/components/chat/chat-bottombar.jsx",
-      lineNumber: 79,
+      lineNumber: 78,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV13(AnimatePresence, { initial: !1, children: [
@@ -1151,7 +1151,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
               !1,
               {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 169,
+                lineNumber: 168,
                 columnNumber: 11
               },
               this
@@ -1167,13 +1167,13 @@ function ChatBottombar({ sendMessage, isMobile }) {
               !1,
               {
                 fileName: "app/components/chat/chat-bottombar.jsx",
-                lineNumber: 180,
+                lineNumber: 179,
                 columnNumber: 13
               },
               this
             ) }, void 0, !1, {
               fileName: "app/components/chat/chat-bottombar.jsx",
-              lineNumber: 179,
+              lineNumber: 178,
               columnNumber: 11
             }, this)
           ]
@@ -1182,7 +1182,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !0,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 154,
+          lineNumber: 153,
           columnNumber: 9
         },
         this
@@ -1199,7 +1199,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
           onClick: handleSend,
           children: /* @__PURE__ */ jsxDEV13(SendHorizontal, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 201,
+            lineNumber: 200,
             columnNumber: 13
           }, this)
         },
@@ -1207,7 +1207,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !1,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 192,
+          lineNumber: 191,
           columnNumber: 11
         },
         this
@@ -1223,7 +1223,7 @@ function ChatBottombar({ sendMessage, isMobile }) {
           onClick: handleThumbsUp,
           children: /* @__PURE__ */ jsxDEV13(ThumbsUp, { size: 20, className: "text-muted-foreground" }, void 0, !1, {
             fileName: "app/components/chat/chat-bottombar.jsx",
-            lineNumber: 213,
+            lineNumber: 212,
             columnNumber: 13
           }, this)
         },
@@ -1231,19 +1231,19 @@ function ChatBottombar({ sendMessage, isMobile }) {
         !1,
         {
           fileName: "app/components/chat/chat-bottombar.jsx",
-          lineNumber: 204,
+          lineNumber: 203,
           columnNumber: 11
         },
         this
       )
     ] }, void 0, !0, {
       fileName: "app/components/chat/chat-bottombar.jsx",
-      lineNumber: 153,
+      lineNumber: 152,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/components/chat/chat-bottombar.jsx",
-    lineNumber: 78,
+    lineNumber: 77,
     columnNumber: 5
   }, this);
 }
@@ -1782,7 +1782,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-4G7QZE6D.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "407d0972", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717993744636 }, url: "/build/manifest-407D0972.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-ATFYKXMJ.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-V2EUWG4X.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-GMFRLIKR.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-TBZ5JI3Y.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-P42HHR63.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "3c9879f5", hmr: { runtime: "/build/_shared/chunk-GMFRLIKR.js", timestamp: 1717994356593 }, url: "/build/manifest-3C9879F5.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1, v3_throwAbortReason: !1, unstable_singleFetch: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

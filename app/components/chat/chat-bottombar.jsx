@@ -65,7 +65,6 @@ export default function ChatBottombar({ sendMessage, isMobile }) {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       handleSend();
-      setMessage("");
     }
 
     if (event.key === "Enter" && event.shiftKey) {
